@@ -183,15 +183,18 @@ section{padding-block:72px;scroll-margin-top:56px}
   .pick-t{font-size:13.5px;flex:none}
   .pick-sum{font-size:13px;line-height:1.45}
   .clear{flex:none;font-size:12.5px;padding:2px 10px}
-  .picker{display:flex;gap:12px;overflow-x:auto;padding:2px 16px 4px;scroll-padding-inline:16px;-webkit-overflow-scrolling:touch;scrollbar-width:none;mask-image:linear-gradient(90deg,transparent 0,#000 10px,#000 calc(100% - 24px),transparent)}
+  /* 手機：一組一組呈現。每個階段是一個區塊（標題在上、按鈕排成兩列），組與組之間以細線分隔，空間不夠就往右滑 */
+  .picker{display:flex;align-items:flex-start;gap:0;overflow-x:auto;padding:2px 16px 4px;scroll-padding-inline:16px;-webkit-overflow-scrolling:touch;scrollbar-width:none;mask-image:linear-gradient(90deg,transparent 0,#000 10px,#000 calc(100% - 24px),transparent)}
   .picker::-webkit-scrollbar{display:none}
-  .pg{flex-direction:row;align-items:center;flex:none;gap:6px}
-  .pg-l{flex-direction:column;align-items:flex-start;gap:0;border:0;padding:0 2px 0 0}
-  .pg-l .t{font-size:12.5px;white-space:nowrap;color:var(--ink-2)}
-  .pg-l .p{font-size:10.5px}
-  .pg-items{flex-direction:row}
-  .pi{width:auto;white-space:nowrap;padding:7px 11px;font-size:13.5px}
-  .pi .tg{margin-left:0}
+  .pg{flex:none;flex-direction:column;gap:7px;padding:0 14px;border-left:1px solid var(--line-2)}
+  .pg:first-child{padding-left:0;border-left:0}
+  .pg:last-child{padding-right:0}
+  .pg-l{position:sticky;left:0;width:max-content;max-width:calc(100vw - 48px);justify-content:flex-start;gap:8px;border:0;padding:0}
+  .pg-l .t{font-size:13px;white-space:nowrap;color:var(--ink)}
+  .pg-l .p{font-size:11px}
+  .pg-items{display:grid;grid-template-rows:repeat(2,auto);grid-auto-flow:column;grid-auto-columns:max-content;gap:6px}
+  .pi{width:100%;white-space:nowrap;padding:6px 10px;font-size:13px}
+  .pi .tg{margin-left:6px}
   .pi.dim,.pg.none{display:none}
 }
 
