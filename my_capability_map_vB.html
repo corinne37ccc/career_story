@@ -1,0 +1,1587 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="林宛萱 Corinne Lin 的專業職能地圖：策略顧問、公共建設、AI 數據產品與產品化實踐。">
+  <meta name="color-scheme" content="light">
+  <title>林宛萱 Corinne Lin｜策略顧問 × AI 數據產品</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Noto+Sans+TC:wght@400;500;600;700&amp;family=Noto+Serif+TC:wght@600;700;900&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #10262d;
+      --ink-deep: #071b24;
+      --ink-soft: #496066;
+      --paper: #f3f1ea;
+      --paper-2: #e9ede8;
+      --white: #fffefa;
+      --line: rgba(16, 38, 45, .16);
+      --teal: #087a75;
+      --teal-bright: #25a69b;
+      --gold: #c78b3a;
+      --blue: #256a91;
+      --olive: #66764a;
+      --coral: #a45446;
+      --shadow: 0 20px 50px rgba(7, 27, 36, .10);
+      --serif: "Noto Serif TC", "Songti TC", serif;
+      --sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      --mono: "IBM Plex Mono", ui-monospace, monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--paper); }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(rgba(16, 38, 45, .028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 38, 45, .028) 1px, transparent 1px),
+        var(--paper);
+      background-size: 28px 28px;
+      font-family: var(--sans);
+      line-height: 1.75;
+      text-rendering: optimizeLegibility;
+    }
+    body.menu-open { overflow: hidden; }
+    a { color: inherit; }
+    button { font: inherit; }
+    ::selection { color: var(--white); background: var(--teal); }
+    :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+    .skip-link {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 100;
+      padding: 8px 12px;
+      transform: translateY(-150%);
+      color: var(--white);
+      background: var(--ink-deep);
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .site-nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 50;
+      color: var(--white);
+      border-bottom: 1px solid rgba(255, 255, 255, .13);
+      background: rgba(7, 27, 36, .86);
+      backdrop-filter: blur(15px);
+    }
+    .nav-inner {
+      width: min(1280px, calc(100% - 40px));
+      height: 70px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(255, 255, 255, .48);
+      color: var(--teal-bright);
+      font-family: var(--mono);
+      font-size: 12px;
+      transform: rotate(45deg);
+    }
+    .brand-mark span { transform: rotate(-45deg); }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a {
+      position: relative;
+      color: rgba(255, 255, 255, .76);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: -7px;
+      height: 1px;
+      background: var(--teal-bright);
+      transition: right .22s ease;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { right: 0; }
+    .nav-links .nav-cta {
+      padding: 8px 14px;
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, .42);
+    }
+    .nav-links .nav-cta::after { display: none; }
+    .menu-button { display: none; }
+
+    .hero {
+      position: relative;
+      min-height: 860px;
+      overflow: hidden;
+      color: var(--white);
+      background: var(--ink-deep);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .3;
+      background:
+        linear-gradient(rgba(255, 255, 255, .06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .06) 1px, transparent 1px);
+      background-size: 52px 52px;
+      mask-image: linear-gradient(to bottom, #000, transparent 90%);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 760px;
+      height: 760px;
+      right: -320px;
+      top: 120px;
+      border: 1px solid rgba(37, 166, 155, .24);
+      border-radius: 50%;
+      box-shadow: 0 0 0 100px rgba(37, 166, 155, .025), 0 0 0 200px rgba(37, 166, 155, .018);
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: min(1280px, calc(100% - 40px));
+      min-height: 860px;
+      margin: 0 auto;
+      padding: 154px 0 92px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(400px, .92fr);
+      align-items: center;
+      gap: 86px;
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 25px;
+      color: var(--teal-bright);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 34px; height: 1px; background: currentColor; }
+    .hero h1 {
+      max-width: 780px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(45px, 6vw, 78px);
+      line-height: 1.16;
+      letter-spacing: -.045em;
+    }
+    .hero h1 .name-en {
+      display: block;
+      margin-top: 8px;
+      color: rgba(255, 255, 255, .58);
+      font-family: var(--mono);
+      font-size: clamp(16px, 1.6vw, 22px);
+      font-weight: 400;
+      letter-spacing: .05em;
+    }
+    .hero-position {
+      margin: 34px 0 16px;
+      color: var(--teal-bright);
+      font-size: clamp(19px, 2vw, 25px);
+      font-weight: 600;
+      letter-spacing: .08em;
+    }
+    .hero-thesis {
+      max-width: 700px;
+      margin: 0;
+      color: rgba(255, 255, 255, .9);
+      font-family: var(--serif);
+      font-size: clamp(25px, 3vw, 39px);
+      font-weight: 600;
+      line-height: 1.55;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 42px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 19px;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: transparent;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button.primary { color: var(--ink-deep); border-color: var(--teal-bright); background: var(--teal-bright); }
+    .button.ghost { color: var(--white); border-color: rgba(255, 255, 255, .36); }
+    .button .arrow { font-family: var(--mono); transition: transform .2s ease; }
+    .button:hover .arrow { transform: translateX(3px); }
+
+    .hero-system {
+      position: relative;
+      width: min(490px, 100%);
+      aspect-ratio: 1;
+      justify-self: end;
+    }
+    .system-ring {
+      position: absolute;
+      inset: 11%;
+      border: 1px solid rgba(255, 255, 255, .16);
+      border-radius: 50%;
+    }
+    .system-ring::before, .system-ring::after {
+      content: "";
+      position: absolute;
+      inset: 17%;
+      border: 1px dashed rgba(37, 166, 155, .28);
+      border-radius: 50%;
+    }
+    .system-ring::after { inset: 38%; border-style: solid; }
+    .system-axis { position: absolute; inset: 11%; }
+    .system-axis::before, .system-axis::after {
+      content: "";
+      position: absolute;
+      inset: 50% 0 auto;
+      height: 1px;
+      background: rgba(255, 255, 255, .1);
+    }
+    .system-axis::after { transform: rotate(90deg); }
+    .system-core {
+      position: absolute;
+      inset: 37%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      border: 1px solid var(--teal-bright);
+      border-radius: 50%;
+      color: var(--white);
+      background: rgba(7, 27, 36, .92);
+      box-shadow: 0 0 45px rgba(37, 166, 155, .13);
+      font-family: var(--mono);
+      font-size: 11px;
+      line-height: 1.55;
+      letter-spacing: .08em;
+    }
+    .system-node {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, .78);
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .system-node::before { content: ""; width: 8px; height: 8px; border: 2px solid var(--teal-bright); border-radius: 50%; background: var(--ink-deep); }
+    .system-node small { color: rgba(255, 255, 255, .38); font-family: var(--mono); }
+    .system-node.n1 { top: 6%; left: 50%; transform: translateX(-50%); }
+    .system-node.n2 { top: 29%; right: -1%; }
+    .system-node.n3 { right: 4%; bottom: 15%; }
+    .system-node.n4 { left: 4%; bottom: 15%; flex-direction: row-reverse; }
+    .system-node.n5 { top: 29%; left: -1%; flex-direction: row-reverse; }
+
+    .metric-strip {
+      position: relative;
+      z-index: 5;
+      width: min(1280px, calc(100% - 40px));
+      margin: -63px auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+    .metric { min-height: 126px; padding: 23px 27px; border-right: 1px solid var(--line); }
+    .metric:last-child { border-right: 0; }
+    .metric-value { display: block; color: var(--teal); font-family: var(--serif); font-size: 37px; font-weight: 900; line-height: 1.2; }
+    .metric-label { display: block; margin-top: 8px; color: var(--ink-soft); font-size: 13px; }
+
+    main { overflow: hidden; }
+    .section { padding: 128px 0; }
+    .section-inner { width: min(1280px, calc(100% - 40px)); margin: 0 auto; }
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, .72fr) minmax(320px, 1.28fr);
+      gap: 80px;
+      align-items: end;
+      margin-bottom: 58px;
+    }
+    .section-number { margin: 0 0 14px; color: var(--teal); font-family: var(--mono); font-size: 12px; letter-spacing: .12em; }
+    .section h2 { margin: 0; font-family: var(--serif); font-size: clamp(36px, 4.6vw, 62px); line-height: 1.25; letter-spacing: -.035em; }
+    .section-intro { max-width: 720px; margin: 0; color: var(--ink-soft); font-size: 17px; }
+    .section-intro strong { color: var(--ink); }
+
+    .story { padding-top: 160px; }
+    .story-grid { display: grid; grid-template-columns: .74fr 1.26fr; gap: 80px; align-items: start; }
+    .story-label {
+      position: sticky;
+      top: 110px;
+      padding-top: 16px;
+      border-top: 1px solid var(--ink);
+      color: var(--ink-soft);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .story-copy { display: grid; gap: 48px; }
+    .story-lead { margin: 0; font-family: var(--serif); font-size: clamp(28px, 3.4vw, 46px); font-weight: 700; line-height: 1.55; }
+    .story-lead em { color: var(--teal); font-style: normal; }
+    .story-points { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+    .story-point { padding: 24px 22px 0 0; }
+    .story-point + .story-point { padding-left: 22px; border-left: 1px solid var(--line); }
+    .story-point b { display: block; margin-bottom: 9px; font-size: 16px; }
+    .story-point p { margin: 0; color: var(--ink-soft); font-size: 14px; }
+
+    .capability-section { color: var(--white); background: var(--ink-deep); }
+    .capability-section .section-intro { color: rgba(255, 255, 255, .64); }
+    .capability-section .section-intro strong { color: var(--white); }
+    .capability-section h2 { color: var(--white); }
+    .map-toolbar {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: end;
+      padding: 22px 0;
+      border-top: 1px solid rgba(255, 255, 255, .18);
+      border-bottom: 1px solid rgba(255, 255, 255, .18);
+    }
+    .toolbar-label { display: block; margin-bottom: 10px; color: rgba(255, 255, 255, .45); font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+    .case-filters { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 3px; scrollbar-width: thin; }
+    .case-filter {
+      flex: 0 0 auto;
+      padding: 8px 13px;
+      border: 1px solid rgba(255, 255, 255, .22);
+      color: rgba(255, 255, 255, .68);
+      background: transparent;
+      cursor: pointer;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .case-filter:hover, .case-filter.active { color: var(--ink-deep); border-color: var(--teal-bright); background: var(--teal-bright); }
+    .reset-map {
+      padding: 8px 13px;
+      border: 0;
+      color: rgba(255, 255, 255, .62);
+      background: transparent;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .reset-map:hover { color: var(--white); }
+    .map-status {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(290px, .5fr);
+      gap: 26px;
+      min-height: 154px;
+      padding: 28px 0 25px;
+    }
+    .status-kicker { display: block; color: var(--teal-bright); font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+    .status-title { margin: 6px 0 5px; font-family: var(--serif); font-size: clamp(24px, 3vw, 34px); }
+    .status-copy { margin: 0; color: rgba(255, 255, 255, .6); font-size: 14px; }
+    .status-stats { display: flex; align-items: center; justify-content: flex-end; gap: 25px; }
+    .status-stat { min-width: 75px; }
+    .status-stat b { display: block; color: var(--teal-bright); font-family: var(--mono); font-size: 27px; line-height: 1.2; }
+    .status-stat span { color: rgba(255, 255, 255, .43); font-size: 11px; }
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      align-items: start;
+    }
+    .cap-group { --group: var(--teal); min-width: 0; }
+    .cap-group[data-theme="consulting"] { --group: #338bb0; }
+    .cap-group[data-theme="drive"] { --group: #b6793e; }
+    .cap-group[data-theme="solutions"] { --group: #1b9188; }
+    .cap-group[data-theme="industry"] { --group: #74865b; }
+    .cap-group[data-theme="ai"] { --group: #b76051; }
+    .cap-heading {
+      min-height: 116px;
+      padding: 17px 16px;
+      border-top: 4px solid var(--group);
+      background: rgba(255, 255, 255, .07);
+    }
+    .cap-heading-top { display: flex; justify-content: space-between; gap: 10px; }
+    .cap-heading-index { color: var(--group); font-family: var(--mono); font-size: 11px; }
+    .cap-heading-count {
+      display: grid;
+      place-items: center;
+      min-width: 27px;
+      height: 27px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 50%;
+      color: rgba(255, 255, 255, .72);
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+    .cap-heading h3 { margin: 13px 0 2px; font-size: 17px; line-height: 1.35; }
+    .cap-heading small { color: rgba(255, 255, 255, .38); font-family: var(--mono); font-size: 9px; letter-spacing: .06em; }
+    .cap-list { display: grid; gap: 6px; margin-top: 7px; }
+    .cap-card {
+      position: relative;
+      width: 100%;
+      min-height: 64px;
+      padding: 11px 33px 11px 12px;
+      border: 1px solid rgba(255, 255, 255, .13);
+      color: rgba(255, 255, 255, .9);
+      background: rgba(255, 255, 255, .045);
+      text-align: left;
+      cursor: pointer;
+      line-height: 1.45;
+      font-size: 13px;
+      transition: opacity .18s ease, transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .cap-card::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 13px;
+      width: 8px;
+      height: 8px;
+      border: 1px solid var(--group);
+      border-radius: 50%;
+      transform: translateY(-50%);
+    }
+    .cap-card::after {
+      content: attr(data-desc);
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      bottom: calc(100% + 8px);
+      z-index: 20;
+      padding: 10px 11px;
+      border: 1px solid rgba(255, 255, 255, .16);
+      color: rgba(255, 255, 255, .82);
+      background: #102f39;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, .3);
+      font-size: 12px;
+      line-height: 1.55;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity .16s ease, transform .16s ease;
+    }
+    .cap-card:hover::after, .cap-card:focus-visible::after { opacity: 1; transform: translateY(0); }
+    .cap-card:hover { border-color: var(--group); transform: translateY(-2px); }
+    .cap-card.active { color: var(--white); border-color: var(--group); background: color-mix(in srgb, var(--group) 28%, transparent); }
+    .cap-card.active::before { background: var(--group); box-shadow: 0 0 0 4px color-mix(in srgb, var(--group) 20%, transparent); }
+    .capability-grid.has-filter .cap-card:not(.active) { opacity: .24; }
+    .capability-grid.has-filter .cap-card:not(.active):hover { opacity: .82; }
+    .cap-group.group-active .cap-heading { background: color-mix(in srgb, var(--group) 18%, transparent); }
+    .map-footnote { margin: 20px 0 0; color: rgba(255, 255, 255, .38); font-size: 12px; }
+
+    .matched-cases { margin-top: 28px; border-top: 1px solid rgba(255, 255, 255, .17); }
+    .matched-head { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 0 13px; }
+    .matched-head h3 { margin: 0; font-size: 15px; }
+    .matched-count { color: var(--teal-bright); font-family: var(--mono); font-size: 12px; }
+    .matched-list { display: flex; flex-wrap: wrap; gap: 8px; min-height: 38px; }
+    .matched-chip {
+      padding: 7px 11px;
+      border: 1px solid rgba(255, 255, 255, .15);
+      color: rgba(255, 255, 255, .7);
+      background: transparent;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .matched-chip:hover { color: var(--white); border-color: var(--teal-bright); }
+
+    .projects-section { background: var(--paper-2); }
+    .project-overview {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin: -10px 0 38px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .project-overview-item { padding: 20px 24px; border-right: 1px solid var(--line); }
+    .project-overview-item:first-child { padding-left: 0; }
+    .project-overview-item:last-child { border-right: 0; }
+    .project-overview-item b { display: block; color: var(--teal); font-family: var(--serif); font-size: 32px; line-height: 1.2; }
+    .project-overview-item span { color: var(--ink-soft); font-size: 12px; }
+    .project-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 25px;
+    }
+    .project-filter {
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      color: var(--ink-soft);
+      background: rgba(255, 255, 255, .45);
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .project-filter:hover, .project-filter.active { color: var(--white); border-color: var(--ink); background: var(--ink); }
+    .project-result-count { margin-left: auto; color: var(--teal); font-family: var(--mono); font-size: 11px; letter-spacing: .07em; }
+    .project-archive { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; }
+    .project-card {
+      --project-accent: var(--teal);
+      position: relative;
+      display: grid;
+      grid-template-columns: 96px minmax(0, 1fr);
+      min-height: 310px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--white);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .project-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .project-card[data-stage="associate"] { --project-accent: #426b87; }
+    .project-card[data-stage="consultant"] { --project-accent: #087a75; }
+    .project-card[data-stage="senior"] { --project-accent: #8f6c31; }
+    .project-card[data-stage="ai"] { --project-accent: #a45446; }
+    .project-card[hidden] { display: none; }
+    .project-rail {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 19px 15px;
+      color: var(--white);
+      background: var(--project-accent);
+    }
+    .project-seq { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; }
+    .project-stage {
+      writing-mode: vertical-rl;
+      align-self: center;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+    }
+    .project-kind { font-family: var(--mono); font-size: 9px; opacity: .72; }
+    .project-body { display: flex; flex-direction: column; padding: 24px 24px 20px; }
+    .project-scale { color: var(--project-accent); font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .06em; }
+    .project-card h3 { margin: 8px 0 9px; font-family: var(--serif); font-size: 21px; line-height: 1.45; }
+    .project-description { margin: 0; color: var(--ink-soft); font-size: 13px; }
+    .project-capabilities { display: flex; flex-wrap: wrap; gap: 5px; margin: 18px 0 20px; }
+    .project-capability {
+      padding: 4px 7px;
+      border: 1px solid var(--line);
+      color: var(--ink-soft);
+      background: transparent;
+      cursor: pointer;
+      font-size: 10px;
+    }
+    .project-capability:hover { color: var(--teal); border-color: var(--teal); }
+    .project-map-link {
+      align-self: flex-start;
+      margin-top: auto;
+      padding: 0;
+      border: 0;
+      color: var(--project-accent);
+      background: transparent;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+    .archive-note { margin: 26px 0 0; color: var(--ink-soft); font-size: 12px; }
+
+    .career-section { background: var(--white); }
+    .career-controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 50px; }
+    .career-filter {
+      padding: 9px 15px;
+      border: 1px solid var(--line);
+      color: var(--ink-soft);
+      background: transparent;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .career-filter:hover, .career-filter.active { color: var(--white); border-color: var(--ink); background: var(--ink); }
+    .timeline { position: relative; }
+    .timeline::before { content: ""; position: absolute; top: 0; bottom: 0; left: 209px; width: 1px; background: var(--line); }
+    .career-stage { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 60px; padding: 0 0 72px; }
+    .career-stage[hidden] { display: none; }
+    .stage-meta { position: relative; padding-top: 3px; text-align: right; }
+    .stage-meta::after {
+      content: "";
+      position: absolute;
+      top: 9px;
+      right: -35px;
+      width: 11px;
+      height: 11px;
+      border: 3px solid var(--white);
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 1px var(--teal);
+    }
+    .stage-period { color: var(--teal); font-family: var(--mono); font-size: 12px; }
+    .stage-meta h3 { margin: 7px 0 0; font-family: var(--serif); font-size: 21px; }
+    .stage-content { max-width: 900px; }
+    .stage-org { margin: 0; font-size: 19px; font-weight: 700; }
+    .stage-role { margin: 4px 0 23px; color: var(--ink-soft); font-size: 14px; }
+    .stage-proof {
+      display: inline-flex;
+      gap: 9px;
+      margin-bottom: 20px;
+      padding: 9px 12px;
+      color: var(--teal);
+      border-left: 3px solid var(--teal);
+      background: rgba(8, 122, 117, .07);
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .stage-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+    .stage-card { padding: 18px; border: 1px solid var(--line); background: #fbfbf7; }
+    .stage-card small { color: var(--teal); font-family: var(--mono); font-size: 10px; letter-spacing: .05em; }
+    .stage-card h4 { margin: 6px 0 7px; font-size: 15px; }
+    .stage-card p { margin: 0; color: var(--ink-soft); font-size: 13px; }
+
+    .ai-section { position: relative; }
+    .ai-section::after {
+      content: "AI";
+      position: absolute;
+      right: -16px;
+      top: 75px;
+      color: rgba(16, 38, 45, .035);
+      font-family: var(--mono);
+      font-size: clamp(150px, 28vw, 430px);
+      font-weight: 600;
+      line-height: .8;
+      pointer-events: none;
+    }
+    .process { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(5, 1fr); margin: 25px 0 84px; }
+    .process-step { position: relative; padding: 22px 20px 25px; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); }
+    .process-step + .process-step { border-left: 1px solid var(--line); }
+    .process-step::before { content: ""; position: absolute; top: -6px; left: 20px; width: 10px; height: 10px; border-radius: 50%; background: var(--teal); }
+    .process-step.ai-owned { border-top-color: var(--gold); background: rgba(199, 139, 58, .07); }
+    .process-step.ai-owned::before { background: var(--gold); }
+    .process-no { color: var(--teal); font-family: var(--mono); font-size: 11px; }
+    .process-step.ai-owned .process-no { color: #9c6726; }
+    .process-step h3 { margin: 10px 0 9px; font-size: 16px; }
+    .process-step p { margin: 0; color: var(--ink-soft); font-size: 13px; }
+    .process-owner { display: inline-block; margin-top: 16px; color: var(--ink); font-family: var(--mono); font-size: 10px; font-weight: 600; }
+    .iteration-note { grid-column: 3 / 6; padding: 10px 14px; color: var(--teal); border-bottom: 1px dashed var(--teal); font-family: var(--mono); font-size: 11px; text-align: right; }
+    .work-grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .work-card {
+      position: relative;
+      min-height: 360px;
+      padding: 28px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--white);
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+    .work-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .work-card::after { content: attr(data-no); position: absolute; right: 14px; bottom: -26px; color: rgba(16, 38, 45, .06); font-family: var(--mono); font-size: 110px; line-height: 1; }
+    .work-type { color: var(--teal); font-family: var(--mono); font-size: 10px; letter-spacing: .09em; }
+    .work-card h3 { margin: 26px 0 12px; font-family: var(--serif); font-size: 24px; line-height: 1.45; }
+    .work-card > p { margin: 0; color: var(--ink-soft); font-size: 14px; }
+    .work-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 24px 0 30px; }
+    .work-tags span { padding: 4px 7px; border: 1px solid var(--line); color: var(--ink-soft); font-family: var(--mono); font-size: 9px; }
+    .work-links { position: absolute; left: 28px; right: 28px; bottom: 25px; z-index: 2; display: flex; flex-wrap: wrap; gap: 9px 13px; }
+    .work-links a { color: var(--teal); font-size: 12px; font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+
+    .contact-section { padding: 112px 0; color: var(--white); background: var(--ink-deep); }
+    .contact-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(280px, .6fr); gap: 70px; align-items: end; }
+    .contact-section h2 { max-width: 850px; font-size: clamp(36px, 5.5vw, 70px); }
+    .contact-copy { margin: 24px 0 0; color: rgba(255, 255, 255, .59); }
+    .contact-action { display: grid; gap: 14px; justify-items: stretch; }
+    .contact-action .button { width: 100%; }
+    .site-footer { padding: 23px 0; color: rgba(255, 255, 255, .42); border-top: 1px solid rgba(255, 255, 255, .12); background: var(--ink-deep); font-family: var(--mono); font-size: 10px; }
+    .footer-inner { width: min(1280px, calc(100% - 40px)); margin: 0 auto; display: flex; justify-content: space-between; gap: 20px; }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 1080px) {
+      .hero-inner { grid-template-columns: 1fr .75fr; gap: 40px; }
+      .hero-system { transform: scale(.92); transform-origin: right center; }
+      .capability-grid { grid-template-columns: repeat(2, 1fr); }
+      .cap-group[data-theme="solutions"] { grid-column: 1 / -1; }
+      .cap-group[data-theme="solutions"] .cap-list { grid-template-columns: repeat(2, 1fr); }
+      .work-grid { grid-template-columns: 1fr 1fr; }
+      .work-card:last-child { grid-column: 1 / -1; min-height: 300px; }
+    }
+
+    @media (max-width: 820px) {
+      .nav-inner { width: min(100% - 28px, 1280px); }
+      .menu-button { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid rgba(255,255,255,.3); color: var(--white); background: transparent; cursor: pointer; }
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        display: none;
+        padding: 24px 20px 30px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+        background: rgba(7, 27, 36, .98);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 16px; }
+      .hero, .hero-inner { min-height: auto; }
+      .hero-inner { grid-template-columns: 1fr; padding: 130px 0 120px; }
+      .hero-system { width: min(470px, 92vw); margin: 10px auto 0; justify-self: center; transform: none; }
+      .metric-strip { grid-template-columns: repeat(2, 1fr); }
+      .metric:nth-child(2) { border-right: 0; }
+      .metric:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .section { padding: 96px 0; }
+      .section-head, .story-grid { grid-template-columns: 1fr; gap: 28px; }
+      .story-label { position: static; }
+      .story-points { grid-template-columns: 1fr; }
+      .story-point + .story-point { padding-left: 0; border-left: 0; }
+      .story-point { padding: 20px 0; border-bottom: 1px solid var(--line); }
+      .map-toolbar { grid-template-columns: 1fr; }
+      .reset-map { justify-self: start; padding-left: 0; }
+      .map-status { grid-template-columns: 1fr; }
+      .status-stats { justify-content: flex-start; }
+      .timeline::before { left: 7px; }
+      .project-archive { grid-template-columns: 1fr; }
+      .career-stage { grid-template-columns: 1fr; gap: 18px; padding-left: 34px; }
+      .stage-meta { text-align: left; }
+      .stage-meta::after { left: -32px; right: auto; }
+      .process { grid-template-columns: 1fr; gap: 8px; }
+      .process-step + .process-step { border-left: 0; }
+      .iteration-note { grid-column: auto; text-align: left; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 580px) {
+      .nav-inner, .hero-inner, .metric-strip, .section-inner, .footer-inner { width: min(100% - 28px, 1280px); }
+      .brand { font-size: 14px; }
+      .hero h1 { font-size: 46px; }
+      .hero-thesis { font-size: 27px; }
+      .hero-system { margin-top: -10px; transform: scale(.87); }
+      .system-node { font-size: 11px; }
+      .metric { min-height: 108px; padding: 18px; }
+      .metric-value { font-size: 30px; }
+      .metric-label { font-size: 11px; }
+      .section { padding: 78px 0; }
+      .story { padding-top: 110px; }
+      .section h2 { font-size: 38px; }
+      .capability-grid { grid-template-columns: 1fr; }
+      .cap-group[data-theme="solutions"] { grid-column: auto; }
+      .cap-group[data-theme="solutions"] .cap-list { grid-template-columns: 1fr; }
+      .cap-heading { min-height: auto; }
+      .cap-card { min-height: 54px; }
+      .stage-cards, .work-grid { grid-template-columns: 1fr; }
+      .project-overview { grid-template-columns: 1fr; }
+      .project-overview-item, .project-overview-item:first-child { padding: 15px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+      .project-overview-item:last-child { border-bottom: 0; }
+      .project-result-count { width: 100%; margin: 4px 0 0; }
+      .project-card { grid-template-columns: 72px minmax(0, 1fr); }
+      .project-rail { padding-inline: 11px; }
+      .project-body { padding: 21px 18px 18px; }
+      .work-card, .work-card:last-child { grid-column: auto; min-height: 370px; }
+      .footer-inner { flex-direction: column; gap: 6px; }
+    }
+
+    /* v1: compact opening, organic capability map, and simplified career narrative */
+    .hero { min-height: 510px; }
+    .hero::after, .hero-system, .hero-actions, .eyebrow { display: none; }
+    .hero-inner {
+      min-height: 510px;
+      padding: 128px 0 90px;
+      display: block;
+    }
+    .hero-copy { max-width: 940px; }
+    .hero h1 {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 10px 24px;
+      font-size: clamp(48px, 5.2vw, 70px);
+    }
+    .hero h1 .name-en {
+      display: inline;
+      margin: 0;
+      font-size: clamp(15px, 1.5vw, 20px);
+    }
+    .hero-position { margin: 26px 0 11px; }
+    .hero-thesis { font-size: clamp(23px, 2.4vw, 32px); line-height: 1.45; }
+    .metric-strip { margin-top: -52px; }
+    .story { padding-top: 130px; }
+
+    .capability-section .section-head { display: block; margin-bottom: 34px; }
+    .capability-section .section-head h2 { font-size: clamp(38px, 4.6vw, 60px); }
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+    .cap-group {
+      position: relative;
+      padding: 24px 20px 25px;
+      overflow: visible;
+      border: 1px solid color-mix(in srgb, var(--group) 55%, rgba(255,255,255,.14));
+      border-radius: 68px 46px 72px 50px / 48px 70px 52px 68px;
+      background:
+        radial-gradient(circle at 20% 15%, color-mix(in srgb, var(--group) 18%, transparent), transparent 48%),
+        rgba(255, 255, 255, .035);
+      transition: border-color .2s ease, background .2s ease;
+    }
+    .cap-group:nth-child(even) { border-radius: 48px 76px 50px 68px / 70px 48px 72px 50px; }
+    .cap-group[data-theme="consulting"] { grid-column: 1 / 5; }
+    .cap-group[data-theme="drive"] { grid-column: 5 / 9; transform: translateY(24px); }
+    .cap-group[data-theme="solutions"] { grid-column: 1 / 8; }
+    .cap-group[data-theme="industry"] { grid-column: 8 / 13; transform: translateY(18px); }
+    .cap-group[data-theme="ai"] { grid-column: 9 / 13; transform: translateY(-8px); }
+    .cap-heading {
+      min-height: 0;
+      padding: 0 10px 17px;
+      border-top: 0;
+      background: transparent;
+    }
+    .cap-heading-top { display: block; }
+    .cap-heading-index { color: var(--group); }
+    .cap-heading-count { display: none; }
+    .cap-heading h3 { margin: 6px 0 1px; font-size: 18px; }
+    .cap-list { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 0; }
+    .cap-card {
+      width: auto;
+      min-height: 54px;
+      padding: 13px 19px;
+      border-color: color-mix(in srgb, var(--group) 45%, rgba(255,255,255,.15));
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--group) 9%, rgba(255,255,255,.035));
+      text-align: center;
+    }
+    .cap-card.size-lg { min-height: 68px; padding-inline: 25px; font-size: 14px; }
+    .cap-card.size-md { min-height: 60px; padding-inline: 22px; }
+    .cap-card::before { top: 10px; right: 13px; width: 6px; height: 6px; transform: none; }
+    .cap-card.active { transform: translateY(-2px) scale(1.025); box-shadow: 0 8px 24px rgba(0,0,0,.16); }
+    .cap-group.group-active { border-color: var(--group); }
+    .cap-group.group-active .cap-heading { background: transparent; }
+    .map-footnote { text-align: center; }
+    .map-selection {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: center;
+      margin-top: 28px;
+      padding: 20px 22px;
+      border: 1px solid rgba(255,255,255,.17);
+      background: rgba(255,255,255,.045);
+    }
+    .map-selection[hidden] { display: none; }
+    .map-selection .status-title { margin: 4px 0 2px; font-size: 24px; }
+    .map-selection .status-copy { margin: 0; }
+    .map-selection .reset-map { padding: 8px 0 8px 16px; }
+    .matched-cases { margin-top: 42px; }
+    .matched-head { align-items: end; }
+    .matched-head p { margin: 3px 0 0; color: rgba(255,255,255,.42); font-size: 12px; }
+    .matched-list { display: grid; gap: 13px; }
+    .case-stage-group {
+      display: grid;
+      grid-template-columns: 145px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding-top: 13px;
+      border-top: 1px solid rgba(255,255,255,.11);
+    }
+    .case-stage-label { color: rgba(255,255,255,.5); font-size: 12px; font-weight: 700; }
+    .case-stage-label span { display: block; color: var(--teal-bright); font-family: var(--mono); font-size: 10px; font-weight: 400; }
+    .case-stage-items { display: flex; flex-wrap: wrap; gap: 7px; }
+    .matched-chip { transition: opacity .18s ease, color .18s ease, border-color .18s ease, background .18s ease; }
+    .matched-chip.is-selected { color: var(--ink-deep); border-color: var(--teal-bright); background: var(--teal-bright); }
+    .matched-list.has-filter .matched-chip:not(.is-related):not(.is-selected) { opacity: .34; }
+    .matched-list.has-filter .matched-chip:not(.is-related):not(.is-selected):hover { opacity: .82; }
+
+    .stage-card { display: flex; flex-direction: column; }
+    .stage-card .stage-card-scale { color: var(--teal); }
+    .stage-card .stage-capabilities { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 16px; }
+    .stage-card .stage-capabilities span {
+      padding: 3px 6px;
+      border: 1px solid var(--line);
+      color: var(--ink-soft);
+      font-size: 9px;
+      line-height: 1.45;
+    }
+
+    .process { gap: 0; }
+    .process-step { overflow: visible; }
+    .process-step:not(:nth-child(5))::after {
+      content: "→";
+      position: absolute;
+      z-index: 4;
+      top: 35px;
+      right: -12px;
+      display: grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      color: var(--white);
+      border-radius: 50%;
+      background: var(--teal);
+      font-family: var(--mono);
+      font-size: 13px;
+    }
+    .process-step.co-create { background: rgba(8, 122, 117, .055); }
+    .process-owner { display: flex; flex-wrap: wrap; gap: 5px; }
+    .owner-first, .owner-iteration { display: inline-block; padding: 3px 6px; border: 1px solid var(--line); }
+    .owner-iteration { color: var(--teal); border-color: rgba(8,122,117,.3); background: rgba(8,122,117,.07); }
+    .iteration-note {
+      grid-column: 3 / 6;
+      margin-top: 10px;
+      padding: 11px 14px;
+      color: var(--teal);
+      border: 1px solid rgba(8,122,117,.25);
+      background: rgba(8,122,117,.06);
+      text-align: center;
+    }
+    .works-heading { position: relative; z-index: 1; margin: 0 0 25px; padding-top: 8px; border-top: 1px solid var(--ink); }
+    .works-heading span { color: var(--teal); font-family: var(--mono); font-size: 10px; letter-spacing: .1em; }
+    .works-heading h3 { margin: 6px 0 0; font-family: var(--serif); font-size: 30px; }
+
+    @media (max-width: 1080px) {
+      .capability-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+      .cap-group[data-theme="consulting"] { grid-column: 1 / 4; }
+      .cap-group[data-theme="drive"] { grid-column: 4 / 7; }
+      .cap-group[data-theme="solutions"] { grid-column: 1 / 7; }
+      .cap-group[data-theme="industry"] { grid-column: 1 / 4; }
+      .cap-group[data-theme="ai"] { grid-column: 4 / 7; }
+    }
+
+    @media (max-width: 820px) {
+      .hero-inner { padding: 118px 0 88px; }
+      .hero h1 { display: block; }
+      .hero h1 .name-en { display: block; margin-top: 5px; }
+      .case-stage-group { grid-template-columns: 1fr; gap: 7px; }
+      .case-stage-label span { display: inline; margin-left: 6px; }
+      .map-selection { grid-template-columns: 1fr; }
+      .map-selection .reset-map { justify-self: start; padding-left: 0; }
+      .process-step:not(:nth-child(5))::after {
+        content: "↓";
+        top: auto;
+        right: 22px;
+        bottom: -16px;
+      }
+      .iteration-note { grid-column: auto; }
+    }
+
+    @media (max-width: 580px) {
+      .hero { min-height: 465px; }
+      .hero-inner { min-height: 465px; padding: 112px 0 78px; }
+      .hero h1 { font-size: 43px; }
+      .hero-position { margin-top: 20px; font-size: 18px; }
+      .hero-thesis { font-size: 24px; }
+      .capability-grid { grid-template-columns: 1fr; gap: 12px; }
+      .cap-group[data-theme] { grid-column: auto; transform: none; padding: 21px 15px; }
+      .cap-card, .cap-card.size-md, .cap-card.size-lg { min-height: 50px; padding: 11px 15px; font-size: 12px; }
+      .case-stage-items { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px; }
+      .matched-chip { flex: 0 0 auto; }
+    }
+
+    /* v2: denser capability layout, clearer project hierarchy, categorized evidence */
+    .section, .contact-section { scroll-margin-top: 72px; }
+    .capability-grid {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+    .cap-group[data-theme="consulting"] { grid-column: 1 / 5; grid-row: 1; transform: none; }
+    .cap-group[data-theme="drive"] { grid-column: 5 / 9; grid-row: 1; transform: none; }
+    .cap-group[data-theme="industry"] { grid-column: 9 / 13; grid-row: 1; transform: none; }
+    .cap-group[data-theme="solutions"] { grid-column: 1 / 9; grid-row: 2; transform: none; }
+    .cap-group[data-theme="ai"] { grid-column: 9 / 13; grid-row: 2; transform: none; }
+    .cap-heading h3 { font-size: 19px; }
+    .cap-card,
+    .cap-card.size-md { font-size: 15px; }
+    .cap-card.size-lg { font-size: 16px; }
+    .cap-card::after,
+    .cap-card:hover::after,
+    .cap-card:focus-visible::after { content: none; display: none; }
+
+    .matched-head { padding-top: 26px; }
+    .matched-head h3 { font-family: var(--serif); font-size: clamp(25px, 2.4vw, 32px); }
+    .matched-head p { margin-top: 7px; font-size: 14px; line-height: 1.7; }
+    .matched-count { display: none; }
+    .case-stage-label { font-size: 14px; }
+    .case-stage-label span { display: none; }
+    .matched-chip { padding: 9px 13px; font-size: 13px; line-height: 1.45; }
+
+    .stage-card .stage-capabilities span {
+      --tag: var(--teal);
+      border-color: color-mix(in srgb, var(--tag) 28%, transparent);
+      color: color-mix(in srgb, var(--tag) 68%, var(--ink));
+      background: color-mix(in srgb, var(--tag) 8%, transparent);
+    }
+    .stage-card .stage-capabilities .theme-consulting { --tag: #338bb0; }
+    .stage-card .stage-capabilities .theme-drive { --tag: #a96f39; }
+    .stage-card .stage-capabilities .theme-solutions { --tag: #16867e; }
+    .stage-card .stage-capabilities .theme-industry { --tag: #6c7f52; }
+    .stage-card .stage-capabilities .theme-ai { --tag: #ac5b4d; }
+
+    .process-step.co-create { background: rgba(166, 101, 48, .07); }
+    .process-step.co-create::before { background: #a66530; }
+    .owner-iteration {
+      color: #8b552d;
+      border-color: rgba(166, 101, 48, .34);
+      background: rgba(166, 101, 48, .09);
+    }
+    .iteration-note {
+      grid-column: 3 / 6;
+      margin-top: 14px;
+      padding: 14px 18px 15px;
+      color: #7b4a27;
+      border: 1px solid rgba(146, 84, 34, .34);
+      background: rgba(166, 101, 48, .09);
+      text-align: left;
+    }
+    .iteration-route {
+      display: grid;
+      grid-template-columns: max-content minmax(44px, 1fr) max-content;
+      gap: 12px;
+      align-items: center;
+      color: #8b552d;
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+    .iteration-line { position: relative; height: 2px; background: #a66530; }
+    .iteration-line::before {
+      content: "";
+      position: absolute;
+      left: -1px;
+      top: -4px;
+      width: 0;
+      height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-right: 8px solid #a66530;
+    }
+    .iteration-copy { margin: 9px 0 0; color: #6f4528; font-family: var(--sans); font-size: 14px; font-weight: 700; }
+
+    @media (max-width: 900px) {
+      .capability-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .cap-group[data-theme="consulting"] { grid-column: 1; grid-row: 1; }
+      .cap-group[data-theme="drive"] { grid-column: 2; grid-row: 1; }
+      .cap-group[data-theme="industry"] { grid-column: 1; grid-row: 2; }
+      .cap-group[data-theme="ai"] { grid-column: 2; grid-row: 2; }
+      .cap-group[data-theme="solutions"] { grid-column: 1 / 3; grid-row: 3; }
+    }
+
+    @media (max-width: 820px) {
+      .iteration-note { grid-column: auto; }
+    }
+
+    @media (max-width: 580px) {
+      .capability-grid { grid-template-columns: 1fr; }
+      .cap-group[data-theme] { grid-column: auto; grid-row: auto; }
+      .cap-card,
+      .cap-card.size-md,
+      .cap-card.size-lg { font-size: 14px; }
+      .matched-head h3 { font-size: 27px; }
+      .matched-head p { font-size: 13px; }
+      .case-stage-label { font-size: 13px; }
+      .matched-chip { font-size: 13px; }
+      .iteration-note { padding-inline: 13px; }
+      .iteration-route { gap: 8px; font-size: 9px; }
+      .iteration-copy { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要內容</a>
+  <nav class="site-nav" aria-label="主要導覽">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="回到首頁">
+        <span class="brand-mark" aria-hidden="true"><span>CL</span></span>
+        <span>林宛萱 Corinne Lin</span>
+      </a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="開啟選單">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="#positioning">專業定位</a>
+        <a href="#capability-map">職能地圖</a>
+        <a href="#career">職涯路徑</a>
+        <a href="#ai-work">AI 協作</a>
+        <a class="nav-cta" href="https://www.linkedin.com/in/woan-shiuan-lin-169b8693" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <h1>林宛萱<span class="name-en">CORINNE LIN</span></h1>
+        <p class="hero-position">策略顧問 × AI 數據產品</p>
+        <p class="hero-thesis">把顧問的判斷，做成可以運作的產品。</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="metric-strip" aria-label="重要經歷數據">
+    <div class="metric"><span class="metric-value">9 年+</span><span class="metric-label">策略顧問實務</span></div>
+    <div class="metric"><span class="metric-value">50 件+</span><span class="metric-label">規劃與方案評估顧問案</span></div>
+    <div class="metric"><span class="metric-value">8 人</span><span class="metric-label">公共建設團隊領導</span></div>
+    <div class="metric"><span class="metric-value">6 件+</span><span class="metric-label">AI 協作數據產品</span></div>
+  </div>
+
+  <main id="main">
+    <section class="section story" id="positioning">
+      <div class="section-inner story-grid">
+        <p class="story-label reveal">Professional positioning / 專業定位</p>
+        <div class="story-copy">
+          <p class="story-lead reveal">從定義問題、建立分析架構，到協調多方、提出方案；現在進一步把這套<em>專業判斷系統</em>，轉化為可操作、可更新、可驗證的數據產品。</p>
+          <div class="story-points reveal">
+            <article class="story-point">
+              <b>看懂真正的問題</b>
+              <p>把模糊需求還原為需要解決的核心問題，建立可分析、可分工的結構。</p>
+            </article>
+            <article class="story-point">
+              <b>形成可執行的方案</b>
+              <p>以量化模型、產業理解與溝通協商，將判斷落到策略、制度與投資方案。</p>
+            </article>
+            <article class="story-point">
+              <b>讓方法持續運作</b>
+              <p>以規格先行的 AI 協作，把一次性的顧問分析轉化為可互動的產品。</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section capability-section" id="capability-map">
+      <div class="section-inner">
+        <div class="section-head">
+          <div>
+            <p class="section-number">02 / CAPABILITY SYSTEM</p>
+            <h2>專業能力地圖</h2>
+          </div>
+        </div>
+
+        <div class="capability-grid" id="capability-grid"></div>
+
+        <div class="map-selection" id="map-selection" aria-live="polite" hidden>
+          <div>
+            <span class="status-kicker" id="status-kicker"></span>
+            <h3 class="status-title" id="status-title"></h3>
+            <p class="status-copy" id="status-copy"></p>
+          </div>
+          <button class="reset-map" type="button" id="reset-map">清除選擇 ×</button>
+        </div>
+        <p class="map-footnote">點選能力，可查看相關經歷；點選專案，可看該案使用的能力組合。</p>
+
+        <div class="matched-cases">
+          <div class="matched-head">
+            <div><h3 id="matched-title">代表性專案</h3><p>依職涯階段排列，選擇任何專案查看能力組合。</p></div>
+          </div>
+          <div class="matched-list" id="matched-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section career-section" id="career">
+      <div class="section-inner">
+        <div class="section-head">
+          <div>
+            <p class="section-number">03 / CAREER PATH</p>
+            <h2>職涯路徑</h2>
+          </div>
+          <p class="section-intro">職涯路徑不是單純的職級晉升，而是責任邊界逐步擴張：從模型、專案與重大計畫，到組織領導、知識治理，再走向 AI 數據產品。</p>
+        </div>
+        <div class="career-controls" aria-label="職涯階段篩選">
+          <button class="career-filter active" type="button" data-career="all">全部</button>
+          <button class="career-filter" type="button" data-career="ai">AI 獨立開發</button>
+          <button class="career-filter" type="button" data-career="senior">資深顧問師</button>
+          <button class="career-filter" type="button" data-career="consultant">顧問師</button>
+          <button class="career-filter" type="button" data-career="associate">助理顧問</button>
+          <button class="career-filter" type="button" data-career="education">學歷</button>
+        </div>
+
+        <div class="timeline">
+          <article class="career-stage reveal" data-stage="ai">
+            <div class="stage-meta"><span class="stage-period">2025.09 — PRESENT</span><h3>AI 獨立開發</h3></div>
+            <div class="stage-content">
+              <p class="stage-org">AI × 航空數據產品</p>
+              <p class="stage-role">產品定義與實作｜個人 × AI</p>
+              <div class="stage-proof">3 類工具・6 項作品</div>
+              <div class="stage-cards" data-stage-projects="ai"></div>
+            </div>
+          </article>
+
+          <article class="career-stage reveal" data-stage="senior">
+            <div class="stage-meta"><span class="stage-period">2021.04 — 2025.08</span><h3>資深顧問師</h3></div>
+            <div class="stage-content">
+              <p class="stage-org">台灣野村總研諮詢顧問（NRI Taiwan）</p>
+              <p class="stage-role">計畫經理｜領導 8 人公共建設小組</p>
+              <div class="stage-proof">競標取得 29 案・總金額新台幣 1.5 億元</div>
+              <div class="stage-cards" data-stage-projects="senior"></div>
+            </div>
+          </article>
+
+          <article class="career-stage reveal" data-stage="consultant">
+            <div class="stage-meta"><span class="stage-period">2018.04 — 2021.03</span><h3>顧問師</h3></div>
+            <div class="stage-content">
+              <p class="stage-org">台灣野村總研諮詢顧問（NRI Taiwan）</p>
+              <p class="stage-role">專案負責人 → 計畫經理｜帶領 3 人</p>
+              <div class="stage-proof">主導重大計畫・總金額逾新台幣 7,700 萬元</div>
+              <div class="stage-cards" data-stage-projects="consultant"></div>
+            </div>
+          </article>
+
+          <article class="career-stage reveal" data-stage="associate">
+            <div class="stage-meta"><span class="stage-period">2015.11 — 2018.03</span><h3>助理顧問</h3></div>
+            <div class="stage-content">
+              <p class="stage-org">台灣野村總研諮詢顧問（NRI Taiwan）</p>
+              <p class="stage-role">專案成員 → 專案負責人｜分析與模型主力</p>
+              <div class="stage-cards" data-stage-projects="associate"></div>
+            </div>
+          </article>
+
+          <article class="career-stage reveal" data-stage="education">
+            <div class="stage-meta"><span class="stage-period">2008 — 2015</span><h3>學歷</h3></div>
+            <div class="stage-content">
+              <p class="stage-org">國立成功大學 都市計劃學系</p>
+              <p class="stage-role">學士、碩士</p>
+              <div class="stage-proof">GIS × 都市形態學 × 130 個都市邊緣帶</div>
+              <p class="section-intro">碩士論文以都市形態學及 GIS 網格，解構台灣 130 個都市邊緣帶特性並進行分類研究。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section ai-section" id="ai-work">
+      <div class="section-inner">
+        <div class="section-head">
+          <div>
+            <p class="section-number">04 / AI COLLABORATION</p>
+            <h2>AI 協作</h2>
+          </div>
+          <p class="section-intro">第一輪由我定義問題、拆解結構並完成規格，再由 AI 實作、由我驗證。進入修改循環後，規格調整、AI 實作與驗證修正會成為持續往返的共同協作。</p>
+        </div>
+
+        <div class="process reveal" aria-label="AI 協作流程">
+          <article class="process-step"><span class="process-no">01</span><h3>定義問題</h3><p>誰會用、要解決什麼問題、做到什麼程度。</p><span class="process-owner"><span class="owner-first">第一輪／我</span></span></article>
+          <article class="process-step"><span class="process-no">02</span><h3>拆解結構</h3><p>拆成指標、模組與資料來源。</p><span class="process-owner"><span class="owner-first">第一輪／我</span></span></article>
+          <article class="process-step co-create"><span class="process-no">03</span><h3>撰寫規格</h3><p>寫清楚指標定義、畫面與互動方式。</p><span class="process-owner"><span class="owner-first">第一輪／我</span><span class="owner-iteration">迭代／我 × AI</span></span></article>
+          <article class="process-step ai-owned"><span class="process-no">04</span><h3>AI 實作</h3><p>由 AI 撰寫程式與介面，快速做出可操作版本。</p><span class="process-owner"><span class="owner-iteration">實作／AI</span></span></article>
+          <article class="process-step co-create"><span class="process-no">05</span><h3>驗證修正</h3><p>檢查數字、指標定義與呈現，回到規格修正。</p><span class="process-owner"><span class="owner-first">第一輪／我</span><span class="owner-iteration">迭代／我 × AI</span></span></article>
+          <div class="iteration-note">
+            <div class="iteration-route" aria-hidden="true">
+              <span>03 撰寫規格</span><span class="iteration-line"></span><span>05 驗證修正</span>
+            </div>
+            <p class="iteration-copy">與 AI 協作共同修正與調整</p>
+          </div>
+        </div>
+
+        <div class="works-heading"><span>SELECTED OUTPUTS</span><h3>實作成果</h3></div>
+        <div class="work-grid">
+          <article class="work-card reveal" data-no="01">
+            <span class="work-type">AVIATION INTELLIGENCE / 4 DASHBOARDS</span>
+            <h3>航空產業<br>統計儀表板</h3>
+            <p>將大量統計數據彙整成直覺、可持續追蹤的產業資料庫。</p>
+            <div class="work-tags"><span>DATA CLEANING</span><span>VISUALIZATION</span><span>INDICATOR DESIGN</span></div>
+            <div class="work-links">
+              <a href="https://corinne37ccc.github.io/DB_TW_Airport_Index/" target="_blank" rel="noreferrer">作品總覽 ↗</a>
+              <a href="https://corinne37ccc.github.io/DB_TW_Airport_data-overview/TW_airport_dashboard.html" target="_blank" rel="noreferrer">機場運量 ↗</a>
+              <a href="https://corinne37ccc.github.io/DB_TW_Airport_routes_dashboard/TW_airport-routes_dashboard.html" target="_blank" rel="noreferrer">航線市場 ↗</a>
+              <a href="https://corinne37ccc.github.io/DB_TW_Airport_Cargo/DB_TW_Airport_Cargo-data.html" target="_blank" rel="noreferrer">航空貨運 ↗</a>
+              <a href="https://corinne37ccc.github.io/DB_TW_Airport_Airline-Companies/" target="_blank" rel="noreferrer">航空公司 ↗</a>
+            </div>
+          </article>
+          <article class="work-card reveal" data-no="02">
+            <span class="work-type">AUTOMATED DATA PRODUCT / DAILY</span>
+            <h3>桃園機場每日<br>貨運航班</h3>
+            <p>自動累積每日航班資料，搭配預測與車流推估邏輯，支援營運觀測。</p>
+            <div class="work-tags"><span>AUTOMATION</span><span>TDX DATA</span><span>OPERATIONS</span></div>
+            <div class="work-links"><a href="https://corinne37ccc.github.io/DB_TW_TPE_Daily-flight_cargo/TPE_daily_flight_cargo_vB.html" target="_blank" rel="noreferrer">開啟儀表板 ↗</a></div>
+          </article>
+          <article class="work-card reveal" data-no="03">
+            <span class="work-type">SCENARIO SIMULATION / INTERACTIVE</span>
+            <h3>國際線旅客<br>運量預測</h3>
+            <p>把只能單向說明的專業模型，轉化為參數可調、結果即時可見的討論工具。</p>
+            <div class="work-tags"><span>FORECASTING</span><span>SCENARIO</span><span>CLIENT DIALOGUE</span></div>
+            <div class="work-links"><a href="https://corinne37ccc.github.io/Toolbox_TW_airport_forecast/intl_pax_forecast_tool.html" target="_blank" rel="noreferrer">開啟模擬工具 ↗</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="section-inner contact-grid">
+        <div>
+          <p class="section-number">05 / CONNECT</p>
+          <h2>讓複雜問題，成為可以採取行動的方案。</h2>
+          <p class="contact-copy">Strategy consulting · Infrastructure · Aviation data products · AI collaboration</p>
+        </div>
+        <div class="contact-action">
+          <a class="button primary" href="https://www.linkedin.com/in/woan-shiuan-lin-169b8693" target="_blank" rel="noreferrer">在 LinkedIn 聯絡 <span class="arrow">↗</span></a>
+          <a class="button ghost" href="#top">回到頁首 <span class="arrow">↑</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner"><span>© <span id="year"></span> CORINNE LIN</span><span>STRATEGIC JUDGMENT → OPERATIONAL PRODUCT</span></div>
+  </footer>
+
+  <script>
+    const DATA = {
+      themes: [
+        { id: "consulting", index: "01", name: "顧問思考", en: "CONSULTING THINKING", caps: [
+          { id: "C1", name: "問題定義", desc: "把客戶說出口的需求，還原成真正需要解決的問題。" },
+          { id: "C2", name: "結構化拆解", desc: "把模糊、多面向的議題，拆成可分析、可分工的子問題。" },
+          { id: "C3", name: "統整邏輯", desc: "從大量資料與多方說法中萃取重點，整理成可以拿來決策的訊息。" },
+          { id: "C4", name: "說帖簡報", desc: "以結論先行的結構製作決策說帖與評選簡報，讓聽眾一次抓到重點。" },
+          { id: "C5", name: "新議題分析", desc: "面對陌生議題時，快速建立分析框架與判斷基準。" }
+        ]},
+        { id: "drive", index: "02", name: "推動與領導", en: "DRIVE & LEADERSHIP", caps: [
+          { id: "D1", name: "專案管理", desc: "掌控範疇、時程、預算與品質，從小型案到跨年度大型計畫。" },
+          { id: "D2", name: "利害關係人溝通與協商", desc: "在多方立場之間，找出可以被接受、可以執行的方案。" },
+          { id: "D3", name: "業務開發與標案策略", desc: "主動發掘議題並提案，負責投標策略與服務建議書。" },
+          { id: "D4", name: "客戶關係與產業網絡", desc: "累積公部門主要客戶、航空與航運業者，以及日系企業在台網絡。" },
+          { id: "D5", name: "團隊領導與人才培育", desc: "領導 8 人小組，訂定組織目標、編撰 Playbook 並擔任講師。" }
+        ]},
+        { id: "industry", index: "03", name: "產業 Know-how", en: "INDUSTRY KNOW-HOW", caps: [
+          { id: "K1", name: "航空", desc: "機場整體規劃、航空貨運，以及機場周邊發展。" },
+          { id: "K2", name: "海運", desc: "港口發展、碼頭規劃、引水制度與航運產業。" },
+          { id: "K3", name: "土地開發", desc: "車站、營區、國有地、航空城與 TOD。" },
+          { id: "K4", name: "能源轉型", desc: "企業綠電、船用 LNG 需求與港口能源。" }
+        ]},
+        { id: "solutions", index: "04", name: "解決方案", en: "SOLUTIONS", caps: [
+          { id: "S1", name: "規模預測", desc: "推估運量、需求與設施規模，作為投資與規劃依據。" },
+          { id: "S2", name: "量化分析與建模", desc: "以數據與模型支撐判斷，讓結論經得起檢驗。" },
+          { id: "S3", name: "短中長期策略", desc: "提出分期發展願景與可落地的執行方案。" },
+          { id: "S4", name: "投資方案與財務評估", desc: "建立財務模型評估投資可行性與風險。" },
+          { id: "S5", name: "商業模式設計", desc: "設計收益結構與合作模式，讓方案可持續。" },
+          { id: "S6", name: "服務與營運模式定義", desc: "界定服務對象、內容，以及由誰、如何營運。" },
+          { id: "S7", name: "數位轉型應用設計", desc: "定義數位轉型應用情境，設計 POC／POS 驗證計畫。" },
+          { id: "S8", name: "制度與法規設計", desc: "協助主管機關研擬評估、用地開發與費率制度。" }
+        ]},
+        { id: "ai", index: "05", name: "AI 協作與產品化", en: "AI & PRODUCTIZATION", caps: [
+          { id: "A1", name: "規格先行的 AI 協作", desc: "把分類、定義與驗證流程轉成與 AI 協作的方法。" },
+          { id: "A2", name: "數據產品需求定義", desc: "從使用者痛點界定需求與範圍，再交由 AI 實作。" },
+          { id: "A3", name: "數據儀表板設計", desc: "定義指標計算方法，做成可互動、可更新的儀表板。" },
+          { id: "A4", name: "情境模擬工具設計", desc: "把分析模型做成參數可調的工具，支援假設討論。" }
+        ]}
+      ],
+      projects: [
+        { id: "a1", stageId: "associate", stage: "助理顧問", kind: "project", title: "北部貨櫃碼頭投資效益評估", scale: "新台幣 90 億元投資", desc: "在市場與政策風險下評估碼頭投資效益，釐清最適開發規模。", caps: ["C2","D1","D2","S1","S2","S4","S5","K2"] },
+        { id: "a2", stageId: "associate", stage: "助理顧問", kind: "project", title: "北部雙機場營運策略評估", scale: "向交通部簡報", desc: "協助民航局從經濟效益與航線運作角度，評估北部雙機場營運策略的必要性；建議獲採納為政策參考。", caps: ["C1","C3","C4","D2","D4","S2","S3","K1"] },
+        { id: "b1", stageId: "consultant", stage: "顧問師", kind: "project", title: "全國機場 20 年發展規劃", scale: "17 座機場", desc: "統整大量利害關係人需求，框架全台機場未來 20 年的發展願景與分期策略。", caps: ["C2","C3","C4","C5","D1","D2","D3","D4","D5","S1","S3","S6","S8","K1"] },
+        { id: "b2", stageId: "consultant", stage: "顧問師", kind: "project", title: "台中機場擴大發展計畫", scale: "400 公頃", desc: "規劃機場擴大發展，協調多方需求與新機場配置；成果獲主管機關採納，持續推動中。", caps: ["C2","C3","D1","D2","S1","S3","S4","S5","K1","K3"] },
+        { id: "b3", stageId: "consultant", stage: "顧問師", kind: "project", title: "台中高鐵車站用地開發", scale: "車站周邊開發", desc: "研擬高鐵車站用地的開發定位、商業模式與招商方向。", caps: ["C4","S4","S5","K3"] },
+        { id: "b4", stageId: "consultant", stage: "顧問師", kind: "project", title: "機場轉投資物流事業評估", scale: "新台幣 70 億元轉投資", desc: "評估轉投資物流事業的財務可行性，協助客戶判斷投資風險與投資意願。", caps: ["C1","C2","D1","D2","S2","S4","S5","S6","K1"] },
+        { id: "b5", stageId: "consultant", stage: "顧問師", kind: "project", title: "鐵道旅館財務可行性評估", scale: "自營品牌評估", desc: "評估鐵道旅館由委外轉為自營品牌的財務可行性，支援客戶投資決策。", caps: ["C1","C5","S4","S5","S6","K3"] },
+        { id: "b6", stageId: "consultant", stage: "顧問師", kind: "project", title: "港務數位轉型與自駕車監控構想", scale: "3 種 POC／POS", desc: "研擬港務公司數位轉型策略，設計 3 種 POC／POS 驗證計畫；並設計國網中心的自駕車監控構想。", caps: ["C1","C5","D1","S6","S7","K2","A2"] },
+        { id: "r1", stageId: "senior", stage: "資深顧問師", kind: "role", title: "組織管理", scale: "8 人小組", desc: "領導公共建設小組 8 名成員，制定年度業績目標與 5 年組織成長目標，兼顧業務拓展與人力管理。", caps: ["D1","D3","D4","D5"] },
+        { id: "r2", stageId: "senior", stage: "資深顧問師", kind: "role", title: "知識傳承與教育訓練", scale: "5 份 Playbook", desc: "主導顧問知識傳承計畫，編撰 5 份顧問 Playbook；擔任內部培訓講師，以及政府機關國際經濟與交通建設講師。", caps: ["C2","C4","D3","D4","D5"] },
+        { id: "r3", stageId: "senior", stage: "資深顧問師", kind: "role", title: "數據治理與 AI 知識管理", scale: "顧問數據庫", desc: "建立顧問數據資料庫與 AI Agent 應用邏輯，設計 Annotation 與分類規則，奠定 AI 知識管理與自動化基礎。", caps: ["C2","S7","A2","A4"] },
+        { id: "c1", stageId: "senior", stage: "資深顧問師", kind: "project", title: "桃園機場貨運用地規劃", scale: "110 公頃", desc: "規劃機場貨運用地中長期發展；主持研討會，在短時間內統整重點，協助各方形成共識。", caps: ["C2","C3","D1","D2","D4","D5","S1","S3","S4","K1","K3"] },
+        { id: "c2", stageId: "senior", stage: "資深顧問師", kind: "project", title: "台灣商港 20 年發展建設規劃", scale: "11 座港口", desc: "從總體經濟與海運趨勢研擬全台商港 20 年發展與建設計畫，透過全面溝通掌握各單位需求。", caps: ["C2","C3","C4","D1","D2","D3","D4","D5","S2","S3","S7","K2","K4"] },
+        { id: "c3", stageId: "senior", stage: "資深顧問師", kind: "project", title: "PPP 評估與臺鐵用地開發規定", scale: "皆已發布實施", desc: "協助主管機關研擬 PPP 公共建設評估規定，以及臺鐵公司用地開發新規定。", caps: ["C1","D1","D2","D5","S4","S6","S8","K3"] },
+        { id: "c4", stageId: "senior", stage: "資深顧問師", kind: "project", title: "引水人費率與安全管理制度", scale: "制度建立", desc: "梳理費率結構與安全管理需求，在航商與引水人雙方訴求之間，找出可執行的制度。", caps: ["C1","C2","D2","D5","S2","S8","K2"] },
+        { id: "c5", stageId: "senior", stage: "資深顧問師", kind: "project", title: "企業 ESG 綠電與航商 LNG 需求評估", scale: "跨入能源議題", desc: "規劃企業 ESG 與綠電使用；主動訪談多家航商，評估船用 LNG 需求。", caps: ["C2","C5","D4","S3","S6","K2","K3","K4"] },
+        { id: "w1", stageId: "ai", stage: "AI 獨立開發", kind: "work", title: "航空產業統計儀表板", scale: "4 個儀表板", desc: "將大量統計數據彙整成直覺好理解的數據資料庫，方便隨時追蹤與理解產業動態。", caps: ["C2","C3","S2","K1","A1","A2","A3"] },
+        { id: "w2", stageId: "ai", stage: "AI 獨立開發", kind: "work", title: "自動更新儀表板", scale: "桃園機場每日貨運航班", desc: "自動下載累積航班資料，更細膩觀察每日航班動態，並搭配預測與車流推估邏輯，輔助營運者日常管理。", caps: ["C2","S1","S2","K1","A1","A2","A3","A4"] },
+        { id: "w3", stageId: "ai", stage: "AI 獨立開發", kind: "work", title: "數據情境模擬工具", scale: "國際線旅客運量預測", desc: "將運量預測模型改為互動式說明網頁，與客戶溝通時能隨時調整參數，即時掌握變動與結果。", caps: ["C1","C2","D2","S1","S2","K1","A1","A2","A4"] }
+      ]
+    };
+
+    const allCaps = DATA.themes.flatMap(theme => theme.caps.map(cap => ({ ...cap, themeId: theme.id })));
+    const capById = Object.fromEntries(allCaps.map(cap => [cap.id, cap]));
+    const themeById = Object.fromEntries(DATA.themes.map(theme => [theme.id, theme]));
+    const grid = document.querySelector("#capability-grid");
+    const matchedList = document.querySelector("#matched-list");
+    let activeProject = null;
+    let activeCapability = null;
+
+    const escapeHtml = value => String(value).replace(/[&<>\"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[char]));
+
+    function renderMap() {
+      grid.innerHTML = DATA.themes.map(theme => `
+        <section class="cap-group" data-theme="${theme.id}">
+          <div class="cap-heading">
+            <div class="cap-heading-top"><span class="cap-heading-index">${theme.index}</span></div>
+            <h3>${escapeHtml(theme.name)}</h3>
+            <small>${escapeHtml(theme.en)}</small>
+          </div>
+          <div class="cap-list">
+            ${theme.caps.map(cap => {
+              const uses = DATA.projects.filter(project => project.caps.includes(cap.id)).length;
+              const size = uses >= 8 ? "size-lg" : uses >= 5 ? "size-md" : "size-sm";
+              return `<button class="cap-card ${size}" type="button" data-cap="${cap.id}" aria-pressed="false">${escapeHtml(cap.name)}</button>`;
+            }).join("")}
+          </div>
+        </section>
+      `).join("");
+    }
+
+    function renderCareerProjects() {
+      const kindLabel = { project: "PROJECT", role: "ROLE", work: "AI WORK" };
+      document.querySelectorAll("[data-stage-projects]").forEach(container => {
+        const projects = DATA.projects.filter(project => project.stageId === container.dataset.stageProjects);
+        container.innerHTML = projects.map(project => `
+          <article class="stage-card">
+            <small class="stage-card-scale">${kindLabel[project.kind]} / ${escapeHtml(project.scale)}</small>
+            <h4>${escapeHtml(project.title)}</h4>
+            <p>${escapeHtml(project.desc)}</p>
+            <div class="stage-capabilities" aria-label="${escapeHtml(project.title)}使用的能力">
+              ${project.caps.map(id => `<span class="theme-${capById[id].themeId}">${escapeHtml(capById[id].name)}</span>`).join("")}
+            </div>
+          </article>
+        `).join("");
+      });
+    }
+
+    function updateStatus({ kicker, title, copy }) {
+      document.querySelector("#map-selection").hidden = false;
+      document.querySelector("#status-kicker").textContent = kicker;
+      document.querySelector("#status-title").textContent = title;
+      document.querySelector("#status-copy").textContent = copy;
+    }
+
+    function setMapState() {
+      const selectedCaps = activeProject ? new Set(activeProject.caps) : activeCapability ? new Set([activeCapability.id]) : new Set(allCaps.map(cap => cap.id));
+      const hasFilter = Boolean(activeProject || activeCapability);
+      grid.classList.toggle("has-filter", hasFilter);
+
+      document.querySelectorAll(".cap-card").forEach(button => {
+        const isActive = selectedCaps.has(button.dataset.cap);
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+
+      DATA.themes.forEach(theme => {
+        const used = theme.caps.some(cap => selectedCaps.has(cap.id));
+        const group = document.querySelector(`[data-theme="${theme.id}"]`);
+        group.classList.toggle("group-active", hasFilter && used);
+      });
+
+      if (activeProject) {
+        updateStatus({
+          kicker: `${activeProject.stage} / ${activeProject.scale}`,
+          title: activeProject.title,
+          copy: activeProject.desc
+        });
+      } else if (activeCapability) {
+        updateStatus({
+          kicker: `${themeById[activeCapability.themeId].name} / CAPABILITY`,
+          title: activeCapability.name,
+          copy: activeCapability.desc
+        });
+      } else {
+        document.querySelector("#map-selection").hidden = true;
+      }
+
+      renderMatches();
+    }
+
+    function renderMatches() {
+      const stageOrder = [
+        { id: "ai", name: "AI 獨立開發" },
+        { id: "senior", name: "資深顧問師" },
+        { id: "consultant", name: "顧問師" },
+        { id: "associate", name: "助理顧問" }
+      ];
+      const relatedIds = activeCapability
+        ? new Set(DATA.projects.filter(project => project.caps.includes(activeCapability.id)).map(project => project.id))
+        : new Set();
+
+      matchedList.classList.toggle("has-filter", Boolean(activeCapability));
+      matchedList.innerHTML = stageOrder.map(stage => {
+        const projects = DATA.projects.filter(project => project.stageId === stage.id);
+        return `
+          <section class="case-stage-group">
+            <div class="case-stage-label">${stage.name}</div>
+            <div class="case-stage-items">
+              ${projects.map(project => {
+                const isSelected = activeProject?.id === project.id;
+                const isRelated = relatedIds.has(project.id);
+                return `<button class="matched-chip${isSelected ? " is-selected" : ""}${isRelated ? " is-related" : ""}" type="button" data-project="${project.id}" aria-pressed="${isSelected ? "true" : "false"}">${escapeHtml(project.title)}</button>`;
+              }).join("")}
+            </div>
+          </section>
+        `;
+      }).join("");
+
+      document.querySelector("#matched-title").textContent = "代表性專案";
+    }
+
+    renderMap();
+    renderCareerProjects();
+    setMapState();
+
+    document.querySelector("#capability-grid").addEventListener("click", event => {
+      const button = event.target.closest("[data-cap]");
+      if (!button) return;
+      const selected = capById[button.dataset.cap];
+      activeCapability = activeCapability?.id === selected.id ? null : selected;
+      activeProject = null;
+      setMapState();
+    });
+
+    document.querySelector("#matched-list").addEventListener("click", event => {
+      const button = event.target.closest("[data-project]");
+      if (!button) return;
+      const selected = DATA.projects.find(project => project.id === button.dataset.project);
+      activeProject = activeProject?.id === selected.id ? null : selected;
+      activeCapability = null;
+      setMapState();
+      document.querySelector("#capability-map").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    document.querySelector("#reset-map").addEventListener("click", () => {
+      activeProject = null;
+      activeCapability = null;
+      setMapState();
+    });
+
+    document.querySelector(".career-controls").addEventListener("click", event => {
+      const button = event.target.closest("[data-career]");
+      if (!button) return;
+      document.querySelectorAll(".career-filter").forEach(item => item.classList.toggle("active", item === button));
+      document.querySelectorAll(".career-stage").forEach(stage => {
+        stage.hidden = button.dataset.career !== "all" && stage.dataset.stage !== button.dataset.career;
+      });
+    });
+
+    const menuButton = document.querySelector(".menu-button");
+    const navLinks = document.querySelector("#nav-links");
+    menuButton.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(open));
+      menuButton.setAttribute("aria-label", open ? "關閉選單" : "開啟選單");
+      document.body.classList.toggle("menu-open", open);
+    });
+    navLinks.addEventListener("click", event => {
+      if (!event.target.closest("a")) return;
+      navLinks.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.setAttribute("aria-label", "開啟選單");
+      document.body.classList.remove("menu-open");
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("in"); observer.unobserve(entry.target); } });
+    }, { threshold: .08 });
+    document.querySelectorAll(".reveal").forEach(element => observer.observe(element));
+    document.querySelector("#year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
