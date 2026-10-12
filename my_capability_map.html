@@ -1,0 +1,1441 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="only light">
+<meta name="robots" content="noindex, nofollow">
+<title>林宛萱 Corinne Lin</title>
+<meta name="description" content="林宛萱（Corinne Lin）：9 年以上策略顧問經驗，以及與 AI 協作開發航空數據產品的能力地圖。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap">
+<style>
+/* Layout：單欄敘事。首屏 → 能力地圖（組織圖＋代表專案按鈕）→ 職涯歷程（階段按鈕＋倒序時間軸）→ AI 協作成果。固定淺色，不跟隨瀏覽器深色設定。 */
+:root{
+  --bg:#f3f5f8;
+  --surface:#ffffff;
+  --surface-2:#edf0f5;
+  --ink:#121a28;
+  --ink-2:#435066;
+  --muted:#667185;
+  --line:#dbe0e8;
+  --line-2:#c2c9d5;
+  --accent:#1c3f78;
+  --focus:#2a6fd6;
+  --shade:rgba(18,26,40,.08);
+  /* 五個能力類別：統一藍綠色系（白字對比皆 ≥ 4.7） */
+  --t-c:#1b365f;
+  --t-d:#225a96;
+  --t-s:#1a7899;
+  --t-k:#0d6b63;
+  --t-a:#3d8152;
+  --font-display:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --font-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  color-scheme:light only;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.75}
+img{max-width:100%}
+[hidden]{display:none!important}
+a{color:var(--accent);text-underline-offset:3px}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:6px}
+h1,h2,h3,h4,h5{margin:0;text-wrap:balance}
+p{margin:0}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.wrap{max-width:1120px;margin-inline:auto;padding-inline:16px}
+@media (min-width:760px){.wrap{padding-inline:32px}}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(243,245,248,.9);backdrop-filter:saturate(1.2) blur(10px);-webkit-backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px}
+.brand{font-family:var(--font-display);font-weight:700;font-size:17px;letter-spacing:.02em;text-decoration:none;color:var(--ink);white-space:nowrap}
+.brand span{font-family:var(--font-body);font-weight:500;font-size:13px;color:var(--muted);margin-left:8px;letter-spacing:.04em}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;gap:4px}
+.nav a.lnk{position:relative;display:block;padding:6px 10px;border-radius:8px;text-decoration:none;color:var(--ink-2);font-size:14px;white-space:nowrap;transition:color .2s}
+.nav a.lnk.active{color:var(--accent);font-weight:700}
+.nav a.lnk.active::after{content:"";position:absolute;left:10px;right:10px;bottom:-9px;height:2px;background:var(--accent)}
+.nav a.lnk:hover{background:var(--surface-2);color:var(--ink)}
+.nav .s{display:none}
+@media (max-width:560px){.brand span{display:none}.nav .l{display:none}.nav .s{display:inline}.nav a.lnk{padding:6px 8px}}
+
+/* ---------- hero ---------- */
+.hero{padding-block:64px 52px;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.hero .kicker{font-weight:500;font-size:15px;letter-spacing:.08em;color:var(--ink-2)}
+.hero h1{font-family:var(--font-display);font-weight:700;font-size:clamp(30px,5.3vw,50px);line-height:1.1;letter-spacing:.02em;margin-top:12px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px}
+.hero h1 .en{font-family:var(--font-body);font-weight:400;font-size:clamp(15px,2vw,19px);letter-spacing:.03em;color:var(--ink-2)}
+.thesis{font-family:var(--font-display);font-weight:600;font-size:clamp(21px,3.2vw,30px);line-height:1.45;margin-top:18px;max-width:22em;color:var(--ink-2)}
+/* 重點數據：以線條分隔，不做成圖卡 */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:36px 0 0;border-top:1px solid var(--line-2)}
+.stat{padding:18px 18px 4px 0;min-width:0}
+.stat + .stat{padding-left:20px;border-left:1px solid var(--line)}
+.stat dt{font-family:var(--font-display);font-weight:700;font-size:clamp(26px,3.4vw,36px);line-height:1.2;white-space:nowrap;color:var(--ink)}
+.stat dd{margin:6px 0 0;color:var(--ink-2);font-size:15px;font-weight:500;line-height:1.5}
+@media (max-width:760px){
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat:nth-child(3){padding-left:0;border-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--line)}
+}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;font-size:15px;font-weight:500;text-decoration:none;border:1px solid var(--line-2);background:var(--surface);color:var(--ink);cursor:pointer}
+.btn:hover{border-color:var(--ink-2)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{background:#163463}
+
+/* ---------- sections ---------- */
+section{padding-block:72px;scroll-margin-top:56px}
+/* 每個主題一種底色：能力地圖白底、職涯歷程淺灰藍、AI 協作成果深藍 */
+#capability{background:#ffffff}
+#career{background:#e9eef5}
+#ai{background:#13284a}
+@media (max-width:760px){section{padding-block:52px}}
+.sec-head{display:grid;gap:12px;margin-bottom:30px}
+.chap{display:flex;align-items:center;gap:14px}
+.chap .no{font-family:var(--font-display);font-weight:700;font-size:clamp(34px,4.6vw,46px);line-height:1;color:var(--accent);font-variant-numeric:lining-nums}
+.chap .en{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.chap::after{content:"";flex:1;height:1px;background:var(--line-2)}
+#ai .chap .no{color:#8fb4ea}
+#ai .chap .en{color:rgba(255,255,255,.7)}
+#ai .chap::after{background:rgba(255,255,255,.28)}
+#ai .sec-head h2,#ai .works-head h3{color:#fff}
+.sec-head h2{font-family:var(--font-display);font-weight:700;font-size:clamp(28px,4vw,38px);line-height:1.25}
+.sec-head .big{font-family:var(--font-display);font-weight:600;font-size:clamp(19px,2.4vw,24px);line-height:1.65;max-width:34em;color:var(--ink-2);margin-top:4px}
+#ai .sec-head .big{color:rgba(255,255,255,.88)}
+
+/* ---------- capability map：看板式，五個類別並排成直欄，色塊欄＋白色能力磚 ---------- */
+.map{scroll-margin-top:64px}
+@media (min-width:760px){.map{background:#fff;border:1px solid var(--line);padding:24px 24px 20px}}
+.regions{position:relative;display:grid;gap:10px;grid-template-columns:repeat(5,minmax(0,1fr));align-items:stretch}
+.region{position:relative;display:flex;flex-direction:column;min-width:0;background:var(--tc);padding:0 10px 12px;transition:opacity .3s,filter .3s}
+.rh{display:block;width:100%;background:none;color:#fff;border:0;border-bottom:1px solid rgba(255,255,255,.3);padding:14px 4px 10px;margin-bottom:10px;text-align:left;cursor:default}
+.rn{display:block;font-family:var(--font-display);font-weight:700;font-size:clamp(15px,1.4vw,19px);line-height:1.3;letter-spacing:.03em;white-space:nowrap}
+.rn .lat{font-family:var(--font-body);font-weight:700;letter-spacing:0}
+.rsub{display:block;margin-top:4px}
+.ren{display:block;font-family:var(--font-mono);font-size:10px;line-height:1.4;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.badge{position:absolute;top:-11px;right:8px;display:grid;place-items:center;min-width:42px;height:24px;padding:0 7px;background:#fff;color:var(--tc);border:2px solid var(--tc);font-family:var(--font-body);font-weight:700;font-size:12.5px;transform:scale(0);transition:transform .25s cubic-bezier(.3,1.4,.5,1)}
+.region.on .badge{transform:scale(1)}
+.regions.capmode .badge{display:none}
+.ritems{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:8px;align-content:start}
+.node{position:relative;display:flex;align-items:center;justify-content:center;width:100%;min-height:46px;background:rgba(255,255,255,.93);border:0;border-radius:2px;padding:8px 20px;text-align:center;text-wrap:balance;font-size:14.5px;line-height:1.4;font-weight:500;color:var(--ink);cursor:pointer;transition:background .3s var(--d,0s),box-shadow .3s var(--d,0s),opacity .3s}
+.node:hover{background:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.55)}
+.node .mk{display:none;position:absolute;left:9px;top:50%;width:6px;height:11px;margin-top:-7px;border:solid var(--tc);border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+.node.on{background:#fff;font-weight:700;box-shadow:0 0 0 3px rgba(255,255,255,.45)}
+.node.on .mk{display:block}
+.regions.sel .region:not(.on){opacity:.4;filter:saturate(.5)}
+.regions.sel .node.off{opacity:.32}
+@media (max-width:1039px){
+  .regions{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"c d" "s s" "k a"}
+  .region[data-theme="C"]{grid-area:c}
+  .region[data-theme="D"]{grid-area:d}
+  .region[data-theme="S"]{grid-area:s}
+  .region[data-theme="K"]{grid-area:k}
+  .region[data-theme="A"]{grid-area:a}
+  .ritems.c2-sm{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rn{font-size:18px}
+}
+@media (max-width:759px){
+  .regions{gap:8px}
+  .region{padding:0 7px 8px}
+  .rh{padding:9px 2px 7px;margin-bottom:7px}
+  .rn{font-size:15px;letter-spacing:.02em}
+  .ren{display:none}
+  .badge{top:-9px;right:5px;min-width:22px;height:20px;font-size:11.5px;padding:0 4px}
+  .badge .u{display:none}
+  .ritems{gap:5px}
+  .node{min-height:32px;font-size:12.5px;padding:5px 13px}
+  .node .mk{left:5px;width:5px;height:9px;margin-top:-6px;border-width:0 2px 2px 0}
+}
+.tip{position:absolute;z-index:6;width:270px;max-width:calc(100% - 12px);background:#fff;border:1px solid var(--line-2);border-radius:4px;padding:10px 13px;box-shadow:0 10px 28px rgba(18,26,40,.14);pointer-events:none;font-size:13.5px;line-height:1.6}
+.tip .th{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:12px}
+.tip b{display:block;font-size:15px;margin-top:1px}
+.tip p{color:var(--ink-2);margin-top:4px}
+.tip .act{color:var(--muted);font-size:12.5px;margin-top:6px}
+.sw{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--tc);flex:none}
+
+/* picker */
+.pick{margin-top:28px;padding-top:16px;border-top:1px solid var(--line)}
+.pick-head{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;min-height:32px;margin-bottom:12px}
+.pick-t{font-weight:700;font-size:15px}
+.pick-sum{color:var(--ink-2);font-size:14.5px;flex:1 1 240px;min-width:0}
+.pick-sum b{color:var(--ink)}
+.clear{border:1px solid var(--line-2);background:var(--surface);border-radius:999px;padding:3px 12px;font-size:13.5px;cursor:pointer;color:var(--ink-2)}
+.clear:hover{color:var(--ink);border-color:var(--ink-2)}
+.picker{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.pg{display:flex;flex-direction:column;gap:6px;min-width:0}
+.pg-l{display:flex;align-items:baseline;justify-content:space-between;gap:8px;border-bottom:1px solid var(--line-2);padding:0 2px 6px}
+.pg-l .t{font-weight:700;font-size:14.5px}
+.pg-l .p{font-family:var(--font-mono);font-size:12px;color:var(--muted)}
+.pg-items{display:flex;flex-direction:column;gap:6px}
+.pi{display:flex;align-items:center;gap:8px;text-align:left;width:100%;background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:7px 10px;font-size:14px;line-height:1.45;cursor:pointer;color:var(--ink);transition:background .2s,border-color .2s}
+.pi:hover{border-color:var(--ink-2)}
+.pi .tg{flex:none;font-size:11.5px;color:var(--muted);border:1px solid var(--line-2);border-radius:4px;padding:0 5px;line-height:1.6;margin-left:auto}
+.pi[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pi[aria-pressed="true"] .tg{color:#fff;border-color:rgba(255,255,255,.5)}
+.pi.rel{border-color:var(--tc);box-shadow:inset 3px 0 0 var(--tc);font-weight:700}
+.pi.dim{opacity:.3}
+@media (max-width:759px){
+  .pick{position:sticky;bottom:0;z-index:5;background:#ffffff;margin:20px -16px 0;padding:8px 0 calc(8px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line-2)}
+  .pick-head{padding-inline:16px;margin-bottom:6px;min-height:28px;flex-wrap:nowrap}
+  .pick-t{font-size:13.5px;flex:none}
+  .pick-sum{font-size:13px;line-height:1.45}
+  .clear{flex:none;font-size:12.5px;padding:2px 10px}
+  .picker{display:flex;gap:12px;overflow-x:auto;padding:2px 16px 4px;scroll-padding-inline:16px;-webkit-overflow-scrolling:touch;scrollbar-width:none;mask-image:linear-gradient(90deg,transparent 0,#000 10px,#000 calc(100% - 24px),transparent)}
+  .picker::-webkit-scrollbar{display:none}
+  .pg{flex-direction:row;align-items:center;flex:none;gap:6px}
+  .pg-l{flex-direction:column;align-items:flex-start;gap:0;border:0;padding:0 2px 0 0}
+  .pg-l .t{font-size:12.5px;white-space:nowrap;color:var(--ink-2)}
+  .pg-l .p{font-size:10.5px}
+  .pg-items{flex-direction:row}
+  .pi{width:auto;white-space:nowrap;padding:7px 11px;font-size:13.5px}
+  .pi .tg{margin-left:0}
+  .pi.dim,.pg.none{display:none}
+}
+
+/* ---------- career ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.filters button{border:1px solid var(--line-2);background:var(--surface);border-radius:999px;padding:6px 16px;font-size:14.5px;cursor:pointer;color:var(--ink-2)}
+.filters button:hover{border-color:var(--ink-2);color:var(--ink)}
+.filters button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tl{list-style:none;margin:0;padding:0}
+/* 職涯：單欄，時間寫在階段名稱上方 */
+.tl > li{padding-block:32px;border-top:1px solid var(--line)}
+.tl > li.first{border-top:0}
+.when{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px;margin-bottom:4px}
+.when .mono{font-size:13.5px;color:var(--ink-2);font-weight:500}
+.when .org{font-size:13px;color:var(--muted)}
+.stage-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px}
+.stage-h h3{font-family:var(--font-display);font-weight:700;font-size:26px;line-height:1.3}
+.stage-h .en{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+.role{margin-top:6px;color:var(--ink-2)}
+.metric{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-top:12px;padding:10px 14px;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent)}
+.metric .k{font-size:12.5px;color:var(--muted);font-weight:500;letter-spacing:.04em}
+.metric .v{font-weight:700}
+.sub{font-size:13px;font-weight:500;color:var(--muted);letter-spacing:.06em;margin-top:24px}
+.cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:10px}
+@media (max-width:700px){.cases{grid-template-columns:minmax(0,1fr)}}
+.case{display:flex;flex-direction:column;gap:8px;min-width:0;background:var(--surface);border:1px solid var(--line);padding:16px 18px 14px}
+.case.role{background:#dce4ee;border-color:#a9b5c7}
+.case header{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px}
+.case h5{font-size:16.5px;font-weight:700;line-height:1.45}
+.case > p{color:var(--ink-2);font-size:15px;line-height:1.7}
+.case footer{margin-top:auto;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:10px;padding-top:6px}
+.scale{display:inline-block;font-size:12.5px;font-weight:500;color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line);border-radius:2px;padding:1px 8px;line-height:1.7;white-space:nowrap}
+.dots{display:flex;flex-wrap:wrap;gap:2px 10px;margin:0;padding:0;list-style:none;font-size:12.5px;color:var(--muted);line-height:1.6;min-width:0;flex:1 1 200px}
+.dots li{display:inline-flex;align-items:center;gap:5px}
+.see{flex:none;background:none;border:1px solid var(--line-2);border-radius:999px;padding:3px 12px;font-size:13px;cursor:pointer;color:var(--ink-2);white-space:nowrap}
+.see:hover{border-color:var(--accent);color:var(--accent)}
+.edu h3{font-family:var(--font-display);font-weight:600;font-size:22px}
+.edu .note{color:var(--ink-2);margin-top:6px;font-size:15px}
+.tonext{margin-top:14px;font-size:15px}
+
+/* ---------- AI ---------- */
+.flow-wrap{background:var(--surface);border:1px solid var(--line);padding:22px 24px 20px;margin:0}
+.flow-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 20px;margin-bottom:16px}
+.flow-head h3{font-size:17px;font-weight:700}
+.legend{display:flex;gap:14px;font-size:13px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.who{display:inline-block;font-style:normal;font-size:11.5px;font-weight:700;letter-spacing:.06em;border-radius:4px;padding:0 6px;line-height:1.7}
+.who.me{border:1px solid var(--ink-2);color:var(--ink)}
+.who.ai{background:var(--t-a);color:#fff;border:1px solid var(--t-a)}
+.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:22px}
+.flow li{position:relative;min-width:0;border-top:2px solid var(--ink);padding-top:12px}
+.flow li.ai{border-top-color:var(--t-a)}
+.flow li:not(:last-child)::after{content:"";position:absolute;top:-6px;right:-17px;width:10px;height:10px;border-top:2px solid var(--line-2);border-right:2px solid var(--line-2);transform:rotate(45deg)}
+.flow .n{font-family:var(--font-mono);font-size:12px;color:var(--muted)}
+.flow h4{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:16.5px;font-weight:700;margin-top:2px}
+.flow p{font-size:14px;color:var(--ink-2);margin-top:6px;line-height:1.65}
+.uses{display:flex;flex-wrap:wrap;gap:4px;margin-top:10px}
+.ctag{display:inline-flex;align-items:center;gap:5px;border:1px solid color-mix(in srgb,var(--tc) 40%,#fff);background:color-mix(in srgb,var(--tc) 7%,#fff);border-radius:999px;padding:0 8px;font-size:12px;line-height:1.75;color:var(--ink)}
+.loop{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:22px;margin-top:14px}
+.loop div{grid-column:3 / 6;position:relative;border:1.5px dashed var(--line-2);border-top:0;border-radius:0 0 12px 12px;height:22px}
+.loop div::before{content:"";position:absolute;left:-6px;top:-6px;border:5px solid transparent;border-bottom:7px solid var(--line-2);border-top:0}
+.loop span{position:absolute;left:50%;bottom:-11px;transform:translateX(-50%);background:var(--surface);padding:0 10px;font-size:13px;color:var(--muted);white-space:nowrap}
+@media (max-width:860px){
+  .flow{grid-template-columns:minmax(0,1fr);gap:0}
+  .flow li{border-top:0;border-left:2px solid var(--ink);padding:0 0 18px 16px}
+  .flow li.ai{border-left-color:var(--t-a)}
+  .flow li:not(:last-child)::after{display:none}
+  .loop{display:block;margin-top:2px}
+  .loop div{border:0;height:auto}
+  .loop div::before{display:none}
+  .loop span{position:static;transform:none;padding:0;white-space:normal;display:block}
+  .loop span::before{content:"↺ 第 5 步 → 第 3 步：";color:var(--ink-2)}
+}
+.works-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;margin:52px 0 18px}
+.works-head h3{font-family:var(--font-display);font-weight:700;font-size:26px}
+.overview{display:inline-flex;align-items:center;gap:14px;text-decoration:none;background:#fff;color:var(--accent);border:1.5px solid var(--accent);border-radius:8px;padding:10px 18px}
+.overview:hover{background:var(--surface-2)}
+.overview b{display:block;font-weight:700;font-size:16px;line-height:1.35}
+.overview small{display:block;color:var(--muted);font-size:13px;line-height:1.4}
+.overview .arr{font-size:20px;line-height:1}
+.works{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:960px){.works{grid-template-columns:minmax(0,1fr)}}
+.work{display:flex;flex-direction:column;gap:14px;min-width:0;background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--accent);padding:22px 22px 20px}
+.work .type{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;color:var(--muted)}
+.work h4{font-family:var(--font-display);font-weight:700;font-size:22px;line-height:1.35;margin-top:-6px}
+.work .ability{color:var(--ink-2);font-size:15.5px;line-height:1.75}
+.tech-l{font-size:12.5px;font-weight:700;letter-spacing:.08em;color:var(--t-a)}
+.tech{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:8px}
+.tech li{display:flex;gap:10px;align-items:flex-start;font-weight:700;font-size:15.5px;line-height:1.5;color:var(--ink)}
+.tech li::before{content:"";flex:none;width:7px;height:7px;margin-top:.6em;background:var(--t-a);transform:rotate(45deg)}
+.links{list-style:none;margin:auto 0 0;padding:4px 0 0;display:grid;gap:8px}
+.links a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:80px;text-decoration:none;border-radius:8px;padding:10px 14px;background:var(--accent);color:#fff;transition:background .2s}
+.links a:hover{background:#163463}
+.links a b{display:block;font-weight:700;font-size:15px;line-height:1.4}
+.links a small{display:block;color:rgba(255,255,255,.8);font-size:12.5px;line-height:1.45}
+.links a .arr{flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#fff;color:var(--accent);font-size:14px}
+
+/* ---------- footer ---------- */
+.foot{border-top:1px solid var(--line);padding-block:32px 48px;color:var(--muted);font-size:14px}
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px}
+.foot a{color:var(--ink-2)}
+.copyable{user-select:all;font-family:var(--font-mono);font-size:13px}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">林宛萱<span>Corinne Lin</span></a>
+    <ul>
+      <li><a class="lnk" href="#capability"><span class="l">能力地圖</span><span class="s">能力</span></a></li>
+      <li><a class="lnk" href="#career"><span class="l">職涯歷程</span><span class="s">歷程</span></a></li>
+      <li><a class="lnk" href="#ai"><span class="l">AI 協作成果</span><span class="s">AI 成果</span></a></li>
+      <li><a class="lnk" id="nav-li" href="#" target="_blank" rel="noopener"><span class="l">LinkedIn ↗</span><span class="s">in ↗</span></a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap" id="hero"></div>
+  </div>
+
+  <section id="capability">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="chap"><span class="no">01</span><span class="en">Capability Map</span></div>
+        <h2>能力地圖</h2>
+      </div>
+      <div class="map" id="map">
+        <div class="regions" id="tree"><div class="tip" id="tip" hidden></div></div>
+        <div class="pick">
+          <div class="pick-head"><span class="pick-t" id="pick-t">代表專案</span><span class="pick-sum" id="sum" aria-live="polite"></span><button class="clear" type="button" data-clear hidden>清除</button></div>
+          <div class="picker" id="picker" role="group" aria-label="代表專案"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="career">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="chap"><span class="no">02</span><span class="en">Career</span></div>
+        <h2>職涯歷程</h2>
+      </div>
+      <div class="filters" id="filters" role="group" aria-label="職涯階段"></div>
+      <ol class="tl" id="timeline"></ol>
+    </div>
+  </section>
+
+  <section id="ai">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="chap"><span class="no">03</span><span class="en">AI Collaboration</span></div>
+        <h2>AI 協作成果</h2>
+        <p class="big" id="ai-lead"></p>
+      </div>
+      <figure class="flow-wrap">
+        <div class="flow-head">
+          <h3>規格先行的協作流程</h3>
+          <div class="legend"><span><i class="who me">我</i>判斷與定義</span><span><i class="who ai">AI</i>實作</span></div>
+        </div>
+        <ol class="flow" id="flow"></ol>
+        <div class="loop" aria-hidden="true"><div><span id="loop-text"></span></div></div>
+      </figure>
+      <div class="works-head">
+        <h3>代表作品</h3>
+        <a class="overview" id="overview" target="_blank" rel="noopener"></a>
+      </div>
+      <div class="works" id="works"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap" id="foot"></div>
+</footer>
+
+<script>
+const DATA = {
+ "profile": {
+  "name": "林宛萱",
+  "en": "Corinne Lin",
+  "enFull": "Woan-Shiuan (Corinne) Lin",
+  "eyebrow": "策略顧問 × AI 數據產品",
+  "thesis": "把顧問的判斷，做成可以運作的產品。",
+  "stats": [
+   {
+    "value": "9 年+",
+    "label": "策略顧問"
+   },
+   {
+    "value": "逾 50 件",
+    "label": "執行顧問案"
+   },
+   {
+    "value": "8 人",
+    "label": "領導公共建設小組"
+   },
+   {
+    "value": "6 件+",
+    "label": "AI 協作產品"
+   }
+  ],
+  "linkedin": "https://www.linkedin.com/in/woan-shiuan-lin-169b8693",
+  "linkedinText": "linkedin.com/in/woan-shiuan-lin-169b8693",
+  "updated": "2026.10"
+ },
+ "themes": [
+  {
+   "id": "C",
+   "name": "顧問思考",
+   "en": "Consulting Thinking",
+   "desc": "面對複雜議題時，如何定義問題、拆解結構，並歸納出可以拿來決策的判斷。",
+   "caps": [
+    {
+     "id": "C1",
+     "name": "問題定義",
+     "lines": [
+      "問題定義"
+     ],
+     "desc": "把客戶說出口的需求，還原成真正需要解決的問題。"
+    },
+    {
+     "id": "C2",
+     "name": "結構化拆解",
+     "lines": [
+      "結構化",
+      "拆解"
+     ],
+     "desc": "把模糊、多面向的議題，拆成可分析、可分工的子問題。"
+    },
+    {
+     "id": "C3",
+     "name": "統整邏輯",
+     "lines": [
+      "統整邏輯"
+     ],
+     "desc": "從大量資料與多方說法中萃取重點，整理成可以拿來決策的訊息。"
+    },
+    {
+     "id": "C4",
+     "name": "說帖簡報",
+     "lines": [
+      "說帖簡報"
+     ],
+     "desc": "以結論先行的結構製作決策說帖與評選簡報，讓聽眾一次抓到重點。"
+    },
+    {
+     "id": "C5",
+     "name": "新議題分析",
+     "lines": [
+      "新議題",
+      "分析"
+     ],
+     "desc": "面對陌生議題時，快速建立分析框架與判斷基準，並評估它對客戶與產業的影響。"
+    }
+   ],
+   "hl": [
+    "顧問思考"
+   ]
+  },
+  {
+   "id": "D",
+   "name": "推動與領導",
+   "en": "Drive & Leadership",
+   "desc": "如何爭取案子、帶領團隊，並讓多方利害關係人往同一個方向前進。",
+   "caps": [
+    {
+     "id": "D1",
+     "name": "專案管理",
+     "lines": [
+      "專案管理"
+     ],
+     "desc": "掌控範疇、時程、預算與品質，從小型案到跨年度大型計畫。"
+    },
+    {
+     "id": "D2",
+     "name": "利害關係人溝通與協商",
+     "lines": [
+      "利害關係人",
+      "溝通與協商"
+     ],
+     "desc": "主持會議、說服與協商，在多方立場之間找到可以被接受、可以執行的方案。"
+    },
+    {
+     "id": "D3",
+     "name": "業務開發與標案策略",
+     "lines": [
+      "業務開發",
+      "與標案策略"
+     ],
+     "desc": "主動發掘議題並提案；熟悉政府採購與評選流程，負責投標策略與服務建議書。"
+    },
+    {
+     "id": "D4",
+     "name": "客戶關係與產業網絡",
+     "lines": [
+      "客戶關係",
+      "與產業網絡"
+     ],
+     "desc": "民航局、港務公司、航港局、臺鐵公司（原臺鐵局）等主要客戶多次續委託；累積航空與航運業者網絡，理解日系企業在台開發的需求。"
+    },
+    {
+     "id": "D5",
+     "name": "團隊領導與人才培育",
+     "lines": [
+      "團隊領導",
+      "與人才培育"
+     ],
+     "desc": "領導 8 人小組，訂定年度業績與 5 年組織成長目標；編撰 5 份顧問 Playbook，擔任內部與政府機關講師。"
+    }
+   ],
+   "hl": [
+    "推動與",
+    "領導"
+   ]
+  },
+  {
+   "id": "S",
+   "name": "解決方案",
+   "en": "Solutions",
+   "desc": "實際交付給客戶、可以直接用於決策與執行的成果。",
+   "caps": [
+    {
+     "id": "S1",
+     "name": "規模預測",
+     "lines": [
+      "規模預測"
+     ],
+     "desc": "推估運量、需求與設施規模，作為投資與規劃的依據。"
+    },
+    {
+     "id": "S2",
+     "name": "量化分析與建模",
+     "lines": [
+      "量化分析",
+      "與建模"
+     ],
+     "desc": "以數據與模型支撐判斷，讓結論經得起檢驗。"
+    },
+    {
+     "id": "S3",
+     "name": "短中長期策略",
+     "lines": [
+      "短中長期",
+      "策略"
+     ],
+     "desc": "提出分期發展願景與可落地的執行方案。"
+    },
+    {
+     "id": "S4",
+     "name": "投資方案與財務評估",
+     "lines": [
+      "投資方案",
+      "與財務評估"
+     ],
+     "desc": "建立財務模型評估投資可行性與風險，並規劃招商、媒合投資者與營運者。"
+    },
+    {
+     "id": "S5",
+     "name": "商業模式設計",
+     "lines": [
+      "商業模式",
+      "設計"
+     ],
+     "desc": "設計收益結構與合作模式，讓方案在財務上能夠持續。"
+    },
+    {
+     "id": "S6",
+     "name": "服務與營運模式定義",
+     "lines": [
+      "服務與營運",
+      "模式定義"
+     ],
+     "desc": "界定服務對象、服務內容，以及由誰、如何營運。"
+    },
+    {
+     "id": "S7",
+     "name": "數位轉型應用設計",
+     "lines": [
+      "數位轉型",
+      "應用設計"
+     ],
+     "desc": "定義數位轉型的應用情境，設計 POC／POS 驗證計畫。"
+    },
+    {
+     "id": "S8",
+     "name": "制度與法規設計",
+     "lines": [
+      "制度與法規",
+      "設計"
+     ],
+     "desc": "協助主管機關研擬評估規定、用地開發規定與費率制度，並已發布實施。"
+    }
+   ],
+   "hl": [
+    "解決方案"
+   ]
+  },
+  {
+   "id": "K",
+   "name": "產業 Know-how",
+   "en": "Industry Know-how",
+   "desc": "累積最深的四個產業，彼此交織：機場與港口同樣面對土地與能源議題，土地開發也越來越需要納入能源與周邊市場的考量。",
+   "caps": [
+    {
+     "id": "K1",
+     "name": "航空",
+     "lines": [
+      "航空"
+     ],
+     "desc": "機場整體規劃、航空貨運，以及機場周邊發展。"
+    },
+    {
+     "id": "K2",
+     "name": "海運",
+     "lines": [
+      "海運"
+     ],
+     "desc": "港口發展、碼頭規劃、引水制度與航運產業。"
+    },
+    {
+     "id": "K3",
+     "name": "土地開發",
+     "lines": [
+      "土地開發"
+     ],
+     "desc": "車站、營區、國有地、航空城與 TOD（大眾運輸導向開發）。"
+    },
+    {
+     "id": "K4",
+     "name": "能源轉型",
+     "lines": [
+      "能源轉型"
+     ],
+     "desc": "企業綠電、船用 LNG 需求與港口能源。"
+    }
+   ],
+   "hl": [
+    "產業",
+    "Know-how"
+   ]
+  },
+  {
+   "id": "A",
+   "name": "AI 協作與產品化",
+   "en": "AI & Productization",
+   "desc": "把顧問的分類、定義與驗證方法帶進與 AI 的協作。先想清楚，再讓 AI 實作，快速做出可以運作的產品。",
+   "caps": [
+    {
+     "id": "A1",
+     "name": "規格先行的 AI 協作",
+     "lines": [
+      "規格先行的",
+      "AI 協作"
+     ],
+     "desc": "把顧問的分類、定義與驗證流程，轉成與 AI 協作的方法，讓產出維持專業品質。"
+    },
+    {
+     "id": "A2",
+     "name": "數據產品需求定義",
+     "lines": [
+      "數據產品",
+      "需求定義"
+     ],
+     "desc": "從使用者痛點界定需求與範圍，再交由 AI 實作。"
+    },
+    {
+     "id": "A3",
+     "name": "數據儀表板設計",
+     "lines": [
+      "數據儀表板",
+      "設計"
+     ],
+     "desc": "定義產業指標的計算方法，做成可互動、可更新的數據儀表板。"
+    },
+    {
+     "id": "A4",
+     "name": "情境模擬工具設計",
+     "lines": [
+      "情境模擬",
+      "工具設計"
+     ],
+     "desc": "把分析模型做成參數可調的工具，與客戶一起討論假設與結果。"
+    }
+   ],
+   "hl": [
+    "AI 協作",
+    "與產品化"
+   ]
+  }
+ ],
+ "education": {
+  "period": "2008 — 2015",
+  "school": "國立成功大學 都市計劃學系",
+  "degree": "學士、碩士",
+  "thesis": "碩士論文：以都市形態學及 GIS 網格解構台灣 130 個都市邊緣帶特性之分類研究"
+ },
+ "stages": [
+  {
+   "id": "s1",
+   "title": "助理顧問",
+   "en": "Assistant Consultant",
+   "short": "2015–2018",
+   "period": "2015.11 — 2018.03",
+   "org": "台灣野村總研諮詢顧問（NRI Taiwan）",
+   "role": "專案成員 → 專案負責人｜分析與模型主力",
+   "items": [
+    {
+     "id": "a1",
+     "kind": "case",
+     "title": "北部貨櫃碼頭投資效益評估",
+     "scale": "新台幣 90 億元投資",
+     "desc": "在市場與政策風險下評估碼頭投資效益，釐清最適開發規模。",
+     "caps": [
+      "C2",
+      "D1",
+      "D2",
+      "S1",
+      "S2",
+      "S4",
+      "S5",
+      "K2"
+     ]
+    },
+    {
+     "id": "a2",
+     "kind": "case",
+     "title": "北部雙機場營運策略評估",
+     "scale": "向交通部簡報",
+     "desc": "協助民航局從經濟效益與航線運作角度，評估北部雙機場營運策略的必要性；建議獲採納為政策參考。",
+     "caps": [
+      "C1",
+      "C3",
+      "C4",
+      "D2",
+      "D4",
+      "S2",
+      "S3",
+      "K1"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "顧問師",
+   "en": "Consultant",
+   "short": "2018–2021",
+   "period": "2018.04 — 2021.03",
+   "org": "台灣野村總研諮詢顧問（NRI Taiwan）",
+   "role": "專案負責人 → 計畫經理｜帶領 3 人",
+   "metric": "主導重大計畫總金額逾新台幣 7,700 萬元",
+   "items": [
+    {
+     "id": "b1",
+     "kind": "case",
+     "title": "全國機場 20 年發展規劃",
+     "scale": "17 座機場",
+     "desc": "統整大量利害關係人需求，框架全台機場未來 20 年的發展願景與分期策略。",
+     "caps": [
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "S1",
+      "S3",
+      "S6",
+      "S8",
+      "K1"
+     ]
+    },
+    {
+     "id": "b2",
+     "kind": "case",
+     "title": "台中機場擴大發展計畫",
+     "scale": "400 公頃",
+     "desc": "規劃機場擴大發展，協調多方需求與新機場配置；成果獲主管機關採納，持續推動中。",
+     "caps": [
+      "C2",
+      "C3",
+      "D1",
+      "D2",
+      "S1",
+      "S3",
+      "S4",
+      "S5",
+      "K1",
+      "K3"
+     ]
+    },
+    {
+     "id": "b3",
+     "kind": "case",
+     "title": "台中高鐵車站用地開發",
+     "scale": "車站周邊開發",
+     "desc": "研擬高鐵車站用地的開發定位、商業模式與招商方向。",
+     "caps": [
+      "C4",
+      "S4",
+      "S5",
+      "K3"
+     ]
+    },
+    {
+     "id": "b4",
+     "kind": "case",
+     "title": "機場轉投資物流事業評估",
+     "scale": "新台幣 70 億元轉投資",
+     "desc": "評估轉投資物流事業的財務可行性，協助客戶判斷投資風險與投資意願。",
+     "caps": [
+      "C1",
+      "C2",
+      "D1",
+      "D2",
+      "S2",
+      "S4",
+      "S5",
+      "S6",
+      "K1"
+     ]
+    },
+    {
+     "id": "b5",
+     "kind": "case",
+     "title": "鐵道旅館財務可行性評估",
+     "scale": "自營品牌評估",
+     "desc": "評估鐵道旅館由委外轉為自營品牌的財務可行性，支援客戶投資決策。",
+     "caps": [
+      "C1",
+      "C5",
+      "S4",
+      "S5",
+      "S6",
+      "K3"
+     ]
+    },
+    {
+     "id": "b6",
+     "kind": "case",
+     "title": "港務數位轉型與自駕車監控構想",
+     "scale": "3 種 POC／POS",
+     "desc": "研擬港務公司數位轉型策略，設計 3 種 POC／POS 驗證計畫；並設計國網中心的自駕車監控構想。",
+     "caps": [
+      "C1",
+      "C5",
+      "D1",
+      "S6",
+      "S7",
+      "K2",
+      "A2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "資深顧問師",
+   "en": "Senior Consultant",
+   "short": "2021–2025",
+   "period": "2021.04 — 2025.08",
+   "org": "台灣野村總研諮詢顧問（NRI Taiwan）",
+   "role": "計畫經理｜領導 8 人小組",
+   "metric": "競標取得 29 案，總金額達新台幣 1.5 億元",
+   "items": [
+    {
+     "id": "r1",
+     "kind": "role",
+     "title": "組織管理",
+     "scale": "8 人小組",
+     "desc": "領導公共建設小組 8 名成員，制定年度小組業績目標與 5 年組織成長目標，兼顧業務拓展與人力管理。",
+     "caps": [
+      "D1",
+      "D3",
+      "D4",
+      "D5"
+     ]
+    },
+    {
+     "id": "r2",
+     "kind": "role",
+     "title": "知識傳承與教育訓練",
+     "scale": "5 份 Playbook",
+     "desc": "主導顧問知識傳承計畫，編撰 5 份顧問 Playbook（專案管理、預算控管、簡報技巧等）；擔任內部培訓講師，以及政府機關國際經濟與交通建設講師。",
+     "caps": [
+      "C2",
+      "C4",
+      "D3",
+      "D4",
+      "D5"
+     ]
+    },
+    {
+     "id": "r3",
+     "kind": "role",
+     "title": "數據治理與 AI 知識管理",
+     "scale": "顧問數據庫",
+     "desc": "建立顧問數據資料庫與 AI Agent 應用邏輯，設計 Annotation 與分類規則，奠定 AI 知識管理與自動化基礎。",
+     "caps": [
+      "C2",
+      "S7",
+      "A2",
+      "A4"
+     ]
+    },
+    {
+     "id": "c1",
+     "kind": "case",
+     "title": "桃園機場貨運用地規劃",
+     "scale": "110 公頃",
+     "desc": "規劃機場貨運用地中長期發展；主持研討會，在短時間內統整重點，協助各方形成共識。",
+     "caps": [
+      "C2",
+      "C3",
+      "D1",
+      "D2",
+      "D4",
+      "D5",
+      "S1",
+      "S3",
+      "S4",
+      "K1",
+      "K3"
+     ]
+    },
+    {
+     "id": "c2",
+     "kind": "case",
+     "title": "台灣商港 20 年發展建設規劃",
+     "scale": "11 座港口",
+     "desc": "從總體經濟與海運趨勢研擬全台商港 20 年發展與建設計畫，透過全面溝通掌握各單位需求。",
+     "caps": [
+      "C2",
+      "C3",
+      "C4",
+      "D1",
+      "D2",
+      "D3",
+      "D4",
+      "D5",
+      "S2",
+      "S3",
+      "S7",
+      "K2",
+      "K4"
+     ]
+    },
+    {
+     "id": "c3",
+     "kind": "case",
+     "title": "PPP 評估與臺鐵用地開發規定",
+     "scale": "皆已發布實施",
+     "desc": "協助主管機關研擬 PPP 公共建設評估規定，以及臺鐵公司用地開發新規定。",
+     "caps": [
+      "C1",
+      "D1",
+      "D2",
+      "D5",
+      "S4",
+      "S6",
+      "S8",
+      "K3"
+     ]
+    },
+    {
+     "id": "c4",
+     "kind": "case",
+     "title": "引水人費率與安全管理制度",
+     "scale": "制度建立",
+     "desc": "梳理費率結構與安全管理需求，在航商與引水人雙方訴求之間，找出可執行的制度。",
+     "caps": [
+      "C1",
+      "C2",
+      "D2",
+      "D5",
+      "S2",
+      "S8",
+      "K2"
+     ]
+    },
+    {
+     "id": "c5",
+     "kind": "case",
+     "title": "企業 ESG 綠電與航商 LNG 需求評估",
+     "scale": "跨入能源議題",
+     "desc": "規劃企業 ESG 與綠電使用；主動訪談多家航商，評估船用 LNG 需求。",
+     "caps": [
+      "C2",
+      "C5",
+      "D4",
+      "S3",
+      "S6",
+      "K2",
+      "K3",
+      "K4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "AI 獨立開發",
+   "en": "Independent · AI Product Development",
+   "short": "2025–",
+   "period": "2025.09 — 迄今",
+   "org": "AI × 航空數據產品",
+   "role": "產品定義與實作｜個人 × AI",
+   "metric": "3 類工具、6 項作品",
+   "items": [
+    {
+     "id": "w1",
+     "kind": "work",
+     "title": "航空產業統計儀表板",
+     "scale": "4 個儀表板",
+     "desc": "將大量統計數據彙整成直覺好理解的數據資料庫，方便隨時追蹤與理解產業動態。",
+     "caps": [
+      "C2",
+      "C3",
+      "S2",
+      "K1",
+      "A1",
+      "A2",
+      "A3"
+     ]
+    },
+    {
+     "id": "w2",
+     "kind": "work",
+     "title": "自動更新儀表板",
+     "scale": "桃園機場每日貨運航班",
+     "desc": "自動下載累積航班資料，更細膩觀察每日航班動態，並搭配預測與車流推估邏輯，輔助營運者日常管理。",
+     "caps": [
+      "C2",
+      "S1",
+      "S2",
+      "K1",
+      "A1",
+      "A2",
+      "A3",
+      "A4"
+     ]
+    },
+    {
+     "id": "w3",
+     "kind": "work",
+     "title": "數據情境模擬工具",
+     "scale": "國際線旅客運量預測",
+     "desc": "過去運量預測模型只能由專業者單向說明；改為互動式說明網頁後，與客戶溝通時能隨時調整參數，即時掌握變動與結果。",
+     "caps": [
+      "C1",
+      "C2",
+      "D2",
+      "S1",
+      "S2",
+      "K1",
+      "A1",
+      "A2",
+      "A4"
+     ]
+    }
+   ]
+  }
+ ],
+ "ai": {
+  "lead": "延續自 NRI 資深顧問時期的經驗，優先釐清目標與定義問題，確立指標與驗證標準，再與 AI 共同創造解決方案工具。",
+  "flow": [
+   {
+    "title": "定義問題",
+    "who": "me",
+    "desc": "誰會用、要解決什麼問題、做到什麼程度。",
+    "caps": [
+     "C1",
+     "A2"
+    ]
+   },
+   {
+    "title": "拆解結構",
+    "who": "me",
+    "desc": "拆成指標、模組與資料來源。",
+    "caps": [
+     "C2"
+    ]
+   },
+   {
+    "title": "撰寫規格",
+    "who": "me",
+    "desc": "寫清楚指標定義、畫面與互動方式。",
+    "caps": [
+     "A1"
+    ]
+   },
+   {
+    "title": "AI 實作",
+    "who": "ai",
+    "desc": "由 AI 撰寫程式與介面，快速做出可以操作的版本。",
+    "caps": []
+   },
+   {
+    "title": "驗證修正",
+    "who": "me",
+    "desc": "檢查數字、指標定義與呈現，回到規格修正。",
+    "caps": [
+     "S2"
+    ]
+   }
+  ],
+  "loop": "驗證結果回到規格，反覆迭代",
+  "overview": {
+   "name": "台灣航空資訊總覽",
+   "desc": "所有已上線儀表板的入口頁",
+   "url": "https://corinne37ccc.github.io/DB_TW_Airport_Index/"
+  },
+  "works": [
+   {
+    "item": "w1",
+    "type": "航空產業統計儀表板",
+    "count": "4 個儀表板",
+    "ability": "將大量統計數據彙整成直覺好理解的數據資料庫，方便隨時追蹤與理解產業動態。",
+    "links": [
+     {
+      "name": "機場運量要覽",
+      "desc": "全國與各機場的客運、起降與貨運趨勢",
+      "url": "https://corinne37ccc.github.io/DB_TW_Airport_data-overview/TW_airport_dashboard.html"
+     },
+     {
+      "name": "國際航線市場分析",
+      "desc": "國際航點排名、航網地圖、日本航點運量分級",
+      "url": "https://corinne37ccc.github.io/DB_TW_Airport_routes_dashboard/TW_airport-routes_dashboard.html"
+     },
+     {
+      "name": "航空貨運市場分析",
+      "desc": "進出口貨量，以及貨品與貿易國家的交叉分析",
+      "url": "https://corinne37ccc.github.io/DB_TW_Airport_Cargo/DB_TW_Airport_Cargo-data.html"
+     },
+     {
+      "name": "國籍航空公司資訊",
+      "desc": "航空公司、機隊與航點資訊",
+      "url": "https://corinne37ccc.github.io/DB_TW_Airport_Airline-Companies/"
+     }
+    ],
+    "tech": [
+     "大量資料清理",
+     "視覺化需求定義",
+     "顧問導向儀表板功能設計"
+    ]
+   },
+   {
+    "item": "w2",
+    "type": "自動更新儀表板",
+    "count": "桃園機場每日貨運航班",
+    "ability": "自動下載累積航班資料，更細膩觀察每日航班動態，並搭配預測與車流推估邏輯，輔助營運者日常管理。",
+    "links": [
+     {
+      "name": "桃園機場每日貨運航班儀表板",
+      "desc": "每日自動更新",
+      "url": "https://corinne37ccc.github.io/DB_TW_TPE_Daily-flight_cargo/TPE_daily_flight_cargo_vB.html"
+     }
+    ],
+    "tech": [
+     "TDX 每日航班自動下載與更新",
+     "自主創造統計資源",
+     "轉化數據為管理者需觀測的重點資訊"
+    ]
+   },
+   {
+    "item": "w3",
+    "type": "數據情境模擬工具",
+    "count": "台灣國際線旅客運量預測",
+    "ability": "過去運量預測模型只能由專業者單向說明；改為互動式說明網頁後，與客戶溝通時能隨時調整參數，即時掌握變動與結果。",
+    "links": [
+     {
+      "name": "台灣國際線旅客運量預測工具",
+      "desc": "參數可調、三情境並列",
+      "url": "https://corinne37ccc.github.io/Toolbox_TW_airport_forecast/intl_pax_forecast_tool.html"
+     }
+    ],
+    "tech": [
+     "顧問說帖思維與內容呈現",
+     "模型與指標設計",
+     "數據互動式介面設計"
+    ]
+   }
+  ]
+ }
+};
+</script>
+<script>
+(function () {
+  'use strict';
+  const $ = (s, el = document) => el.querySelector(s);
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const TOK = { C: '--t-c', D: '--t-d', S: '--t-s', K: '--t-k', A: '--t-a' };
+  const tc = (themeId) => `--tc:var(${TOK[themeId]})`;
+
+  // ---------- indexes ----------
+  const themes = DATA.themes;
+  const themeById = {}, caps = {}, themeOf = {};
+  themes.forEach((t) => { themeById[t.id] = t; t.caps.forEach((c) => { caps[c.id] = c; themeOf[c.id] = t; }); });
+  const items = {}, stageOf = {};
+  DATA.stages.forEach((s) => s.items.forEach((it) => { items[it.id] = it; stageOf[it.id] = s; }));
+  const capOrder = themes.flatMap((t) => t.caps.map((c) => c.id));
+  const sortCaps = (list) => [...new Set(list)].sort((a, b) => capOrder.indexOf(a) - capOrder.indexOf(b));
+  const themeCount = (list) => new Set(list.map((c) => themeOf[c].id)).size;
+
+  // ---------- hero & footer ----------
+  const P = DATA.profile;
+  $('#nav-li').href = P.linkedin;
+  $('#hero').innerHTML = `
+    <span class="kicker">${esc(P.eyebrow)}</span>
+    <h1>${esc(P.name)}<span class="en">${esc(P.en)}</span></h1>
+    <p class="thesis">${esc(P.thesis)}</p>
+    <dl class="stats">${P.stats.map((s) => `<div class="stat"><dt>${esc(s.value)}</dt><dd>${esc(s.label)}</dd></div>`).join('')}</dl>
+`;
+  $('#foot').innerHTML = `
+    <span>${esc(P.name)} ${esc(P.en)} · ${esc(P.updated)} 更新</span>
+    <span>LinkedIn：<a href="${esc(P.linkedin)}" target="_blank" rel="noopener" class="copyable">${esc(P.linkedinText)}</a></span>`;
+
+  // ---------- capability map ----------
+  const tree = $('#tree'), tip = $('#tip');
+  const COLS = { S: 'c2-sm' };
+  tree.insertAdjacentHTML('afterbegin', themes.map((t) => `
+    <div class="region" data-theme="${t.id}" style="${tc(t.id)}">
+      <button class="rh" type="button" data-tip-theme="${t.id}" aria-label="${esc(t.name)}：${esc(t.desc)}">
+        <span class="rn">${esc(t.name).replace(/([A-Za-z][A-Za-z-]+)/g, '<span class="lat">$1</span>')}</span><span class="rsub"><span class="ren">${esc(t.en)}</span><span class="badge" aria-hidden="true"></span></span>
+      </button>
+      <ul class="ritems ${COLS[t.id] || ''}">${t.caps.map((c) => `
+        <li><button class="node" type="button" data-tip-cap="${c.id}" aria-label="${esc(c.name)}：${esc(c.desc)}"><i class="mk"></i><span>${esc(c.name)}</span></button></li>`).join('')}
+      </ul>
+    </div>`).join(''));
+
+  // ---------- picker ----------
+  $('#picker').innerHTML = DATA.stages.map((s) => `
+    <div class="pg">
+      <div class="pg-l"><span class="t">${esc(s.title)}</span><span class="p">${esc(s.short)}</span></div>
+      <div class="pg-items">${s.items.map((it) => `<button class="pi" type="button" data-item="${it.id}" aria-pressed="false"><span>${esc(it.title)}</span>${it.kind === 'role' ? '<span class="tg">角色</span>' : ''}</button>`).join('')}</div>
+    </div>`).join('');
+
+  // ---------- timeline ----------
+  const dotList = (list) => `<ul class="dots">${sortCaps(list).map((c) => `<li style="${tc(themeOf[c].id)}"><i class="sw"></i>${esc(caps[c].name)}</li>`).join('')}</ul>`;
+  const caseCard = (it) => `
+    <article class="case${it.kind === 'role' ? ' role' : ''}">
+      <header><h5>${esc(it.title)}</h5><span class="scale">${esc(it.scale)}</span></header>
+      <p>${esc(it.desc)}</p>
+      <footer>${dotList(it.caps)}<button class="see" type="button" data-see="${it.id}">在能力地圖查看</button></footer>
+    </article>`;
+  const E = DATA.education;
+  const stageLi = (s) => {
+    const roles = s.items.filter((i) => i.kind === 'role');
+    const rest = s.items.filter((i) => i.kind !== 'role');
+    return `
+    <li data-key="${s.id}">
+      <div class="when"><span class="mono">${esc(s.period)}</span><span class="org">${esc(s.org)}</span></div>
+      <div>
+        <div class="stage-h"><h3>${esc(s.title)}</h3><span class="en">${esc(s.en)}</span></div>
+        <p class="role">${esc(s.role)}</p>
+        ${s.metric ? `<p class="metric"><span class="k">階段成果</span><span class="v">${esc(s.metric)}</span></p>` : ''}
+        ${roles.length ? `<h4 class="sub">角色職責</h4><div class="cases">${roles.map(caseCard).join('')}</div>` : ''}
+        <h4 class="sub">${s.id === 's4' ? '代表作品' : '代表專案'}</h4>
+        <div class="cases">${rest.map(caseCard).join('')}</div>
+        ${s.id === 's4' ? '<p class="tonext"><a href="#ai">作品連結與協作流程，見「AI 協作成果」↓</a></p>' : ''}
+      </div>
+    </li>`;
+  };
+  const eduLi = `
+    <li class="edu" data-key="edu">
+      <div class="when"><span class="mono">${esc(E.period)}</span></div>
+      <div><div class="stage-h"><h3>${esc(E.school)}</h3><span class="en">Education</span></div><p class="role">${esc(E.degree)}</p><p class="note">${esc(E.thesis)}</p></div>
+    </li>`;
+  // 預設倒序：AI 獨立開發在最上面，學歷在最下面
+  $('#timeline').innerHTML = [...DATA.stages].reverse().map(stageLi).join('') + eduLi;
+  const FILTERS = [['all', '全部'], ['edu', '學歷'], ...DATA.stages.map((s) => [s.id, s.title])];
+  $('#filters').innerHTML = FILTERS.map(([k, label]) => `<button type="button" data-filter="${k}" aria-pressed="${k === 'all'}">${esc(label)}</button>`).join('');
+  function setFilter(k) {
+    document.querySelectorAll('#filters button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.filter === k ? 'true' : 'false'));
+    let first = true;
+    document.querySelectorAll('#timeline > li').forEach((li) => {
+      const show = k === 'all' || li.dataset.key === k;
+      li.hidden = !show;
+      li.classList.toggle('first', show && first);
+      if (show) first = false;
+    });
+  }
+  setFilter('all');
+
+  // ---------- AI section ----------
+  const A = DATA.ai;
+  $('#ai-lead').textContent = A.lead;
+  $('#flow').innerHTML = A.flow.map((f, i) => `
+    <li class="${f.who}">
+      <span class="n">${String(i + 1).padStart(2, '0')}</span>
+      <h4>${esc(f.title)}<i class="who ${f.who}">${f.who === 'ai' ? 'AI' : '我'}</i></h4>
+      <p>${esc(f.desc)}</p>
+      ${f.caps.length ? `<div class="uses">${f.caps.map((c) => `<span class="ctag" style="${tc(themeOf[c].id)}"><i class="sw"></i>${esc(caps[c].name)}</span>`).join('')}</div>` : ''}
+    </li>`).join('');
+  $('#loop-text').textContent = A.loop;
+  const ov = $('#overview');
+  ov.href = A.overview.url;
+  ov.innerHTML = `<span><b>${esc(A.overview.name)}</b><small>${esc(A.overview.desc)}</small></span><span class="arr" aria-hidden="true">↗</span>`;
+  $('#works').innerHTML = A.works.map((w) => `
+    <article class="work">
+      <span class="type">${esc(w.count)}</span>
+      <h4>${esc(w.type)}</h4>
+      <p class="ability">${esc(w.ability)}</p>
+      <div><div class="tech-l">關鍵技術</div><ul class="tech">${w.tech.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></div>
+      <ul class="links">${w.links.map((l) => `
+        <li><a href="${esc(l.url)}" target="_blank" rel="noopener"><span><b>${esc(l.name)}</b><small>${esc(l.desc)}</small></span><span class="arr" aria-hidden="true">↗</span></a></li>`).join('')}
+      </ul>
+    </article>`).join('');
+
+  // ---------- selection（點專案：標出用到的能力；點能力：調出用到它的專案） ----------
+  let sel = null; // { type: 'item' | 'cap', id }
+  const cols = [...tree.querySelectorAll('.region')];
+  const capItems = {};
+  Object.keys(caps).forEach((c) => (capItems[c] = []));
+  DATA.stages.forEach((s) => s.items.forEach((it) => it.caps.forEach((c) => capItems[c].push(it.id))));
+  const same = (type, id) => !!sel && sel.type === type && sel.id === id;
+  function select(type, id, opts = {}) {
+    sel = type && (opts.force || !same(type, id)) ? { type, id } : null;
+    apply();
+    if (opts.scroll) $('#map').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+  }
+  function apply() {
+    const isItem = !!sel && sel.type === 'item', isCap = !!sel && sel.type === 'cap';
+    const on = isItem ? new Set(items[sel.id].caps) : isCap ? new Set([sel.id]) : null;
+    tree.classList.toggle('sel', !!on);
+    tree.classList.toggle('capmode', isCap);
+    let k = 0;
+    cols.forEach((col) => {
+      const nodes = [...col.querySelectorAll('.node')];
+      const hit = nodes.map((n, i) => (on && on.has(n.dataset.tipCap) ? i : -1)).filter((i) => i >= 0);
+      col.classList.toggle('on', hit.length > 0);
+      col.querySelector('.badge').innerHTML = isItem && hit.length ? `${hit.length}<span class="u">&nbsp;項</span>` : '';
+      nodes.forEach((n, i) => {
+        const isOn = hit.includes(i);
+        n.classList.toggle('on', isOn);
+        n.classList.toggle('off', !!on && !isOn);
+        n.setAttribute('aria-pressed', isCap && isOn ? 'true' : 'false');
+        n.style.setProperty('--d', isOn ? `${(k++) * 45}ms` : '0ms');
+      });
+    });
+    const rel = isCap ? new Set(capItems[sel.id]) : null;
+    document.querySelectorAll('.pi').forEach((b) => {
+      const id = b.dataset.item, r = !!rel && rel.has(id);
+      b.setAttribute('aria-pressed', isItem && sel.id === id ? 'true' : 'false');
+      b.classList.toggle('rel', r);
+      b.classList.toggle('dim', !!rel && !r);
+      b.style.cssText = r ? tc(themeOf[sel.id].id) : '';
+    });
+    document.querySelectorAll('.pg').forEach((g) => g.classList.toggle('none', !!rel && !g.querySelector('.pi.rel')));
+    const sum = $('#sum'), clr = document.querySelector('[data-clear]'), pk = $('#picker');
+    if (isItem) {
+      const it = items[sel.id];
+      sum.innerHTML = `<b>${esc(it.title)}</b>｜運用 ${it.caps.length} 項能力，橫跨 ${themeCount(it.caps)} 類`;
+      clr.hidden = false;
+      const cur = pk.querySelector(`[data-item="${sel.id}"]`);
+      if (cur && pk.scrollWidth > pk.clientWidth + 4) {
+        const l = cur.getBoundingClientRect().left - pk.getBoundingClientRect().left + pk.scrollLeft;
+        const vis = l >= pk.scrollLeft + 12 && l + cur.offsetWidth <= pk.scrollLeft + pk.clientWidth - 24;
+        if (!vis) pk.scrollTo({ left: Math.max(0, l - 24), behavior: 'smooth' });
+      }
+    } else if (isCap) {
+      sum.innerHTML = `<b>${esc(caps[sel.id].name)}</b>｜${capItems[sel.id].length} 個代表專案用到這項能力，點選專案可看完整能力組合`;
+      clr.hidden = false;
+      pk.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      sum.textContent = '';
+      clr.hidden = true;
+    }
+  }
+
+  // ---------- tooltip（滑鼠移過去顯示說明；觸控點一下顯示） ----------
+  let tipFor = null;
+  function showTip(el) {
+    let head, name, desc, t;
+    if (el.dataset.tipCap) { const c = caps[el.dataset.tipCap]; t = themeOf[c.id]; head = t.name; name = c.name; desc = c.desc; }
+    else { t = themeById[el.dataset.tipTheme]; head = t.en; name = t.name; desc = t.desc; }
+    const act = el.dataset.tipCap ? `<div class="act">點一下：查看用到這項能力的專案（${capItems[el.dataset.tipCap].length} 個）</div>` : '';
+    tip.innerHTML = `<div class="th" style="${tc(t.id)}"><i class="sw"></i>${esc(head)}</div><b>${esc(name)}</b><p>${esc(desc)}</p>${act}`;
+    tip.hidden = false;
+    const r = el.getBoundingClientRect(), tr = tree.getBoundingClientRect();
+    const tw = tip.offsetWidth, th = tip.offsetHeight, W = tree.clientWidth;
+    const left = Math.max(6, Math.min(W - tw - 6, r.left - tr.left + r.width / 2 - tw / 2));
+    let top = r.top - tr.top - th - 8;
+    if (top < 0) top = r.bottom - tr.top + 8;
+    tip.style.left = left + 'px';
+    tip.style.top = top + 'px';
+    tipFor = el;
+  }
+  const hideTip = () => { tip.hidden = true; tipFor = null; };
+  let lastPointer = 'mouse';
+  tree.addEventListener('pointerdown', (e) => { lastPointer = e.pointerType; });
+  tree.querySelectorAll('.node, .rh').forEach((el) => {
+    el.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') showTip(el); });
+    el.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') hideTip(); });
+    el.addEventListener('focus', () => { if (matchMedia('(hover: hover)').matches) showTip(el); });
+    el.addEventListener('blur', hideTip);
+    el.addEventListener('click', () => {
+      if (el.dataset.tipCap) {
+        select('cap', el.dataset.tipCap);
+        if (lastPointer !== 'mouse') (same('cap', el.dataset.tipCap) ? showTip(el) : hideTip());
+      } else if (lastPointer !== 'mouse') (tipFor === el ? hideTip() : showTip(el));
+    });
+  });
+
+  // ---------- events ----------
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.node, .rh')) hideTip();
+    const t = e.target.closest('[data-item],[data-see],[data-clear],[data-filter]');
+    if (!t) return;
+    if (t.hasAttribute('data-clear')) return select(null, null);
+    if (t.dataset.filter) return setFilter(t.dataset.filter);
+    if (t.dataset.see) return select('item', t.dataset.see, { force: true, scroll: true });
+    if (t.dataset.item) return select('item', t.dataset.item);
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { hideTip(); if (sel) select(null, null); } });
+  window.addEventListener('scroll', () => { if (!tip.hidden && lastPointer !== 'mouse') hideTip(); }, { passive: true });
+
+  // ---------- 導覽列：亮起目前所在的章節 ----------
+  const spySections = ['capability', 'career', 'ai'].map((id) => document.getElementById(id));
+  const spyLinks = [...document.querySelectorAll('.nav a.lnk[href^="#"]')];
+  let spyTick = false;
+  function spy() {
+    spyTick = false;
+    const line = 120;
+    let cur = null;
+    spySections.forEach((s) => { if (s.getBoundingClientRect().top <= line) cur = s.id; });
+    const last = spySections[spySections.length - 1];
+    if (innerHeight + scrollY >= document.documentElement.scrollHeight - 4) cur = last.id;
+    spyLinks.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+  }
+  window.addEventListener('scroll', () => { if (!spyTick) { spyTick = true; requestAnimationFrame(spy); } }, { passive: true });
+  spy();
+  apply();
+})();
+</script>
+</body>
+</html>
